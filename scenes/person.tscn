@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxguoygigc1n6"]
+[gd_scene load_steps=7 format=3 uid="uid://dxguoygigc1n6"]
 
 [ext_resource type="Script" path="res://scripts/class/person.gd" id="1_y8ajf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_niflc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3x6ol"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avi5l"]
+resource_local_to_scene = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_1pwpn"]
 size = Vector3(0.545, 0.25, 0.25)
@@ -19,8 +22,9 @@ script = ExtResource("1_y8ajf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_niflc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="body" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_3x6ol")
+surface_material_override/0 = SubResource("StandardMaterial3D_avi5l")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354, 0.469524)

@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var current_host: CharacterBody3D = null
+@export var current_host: Person = null
 
 @onready var camera: Camera3D = $Camera3D
 
@@ -12,7 +12,7 @@ const SPEED = 5.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if current_host:
-		current_host.is_infected = true
+		current_host.set_infected()
 	pass  # Replace with function body.
 
 
@@ -57,6 +57,6 @@ func shoot_ray() -> Dictionary:
 
 func _on_parasite_infect_person(person:Person):
 	printt("Infected new person", person)
-	person.is_infected = true
+	person.set_infected()
 	current_host = person
 	pass

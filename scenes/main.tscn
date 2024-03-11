@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbnfy5mgpbw7u"]
+[gd_scene load_steps=5 format=3 uid="uid://cbnfy5mgpbw7u"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_g6wxm"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_h5p5s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw0pq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i15k4"]
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("current_host")]
 script = ExtResource("1_g6wxm")
@@ -23,8 +27,21 @@ transform = Transform3D(0.785522, 0.458377, -0.415747, 0.618834, -0.581845, 0.52
 shadow_enabled = true
 
 [node name="Person" parent="." instance=ExtResource("2_h5p5s")]
-is_infected = null
+
+[node name="body" parent="Person" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_uw0pq")
 
 [node name="Person2" parent="." instance=ExtResource("2_h5p5s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59564, 1.01686, 0)
-is_infected = null
+
+[node name="body" parent="Person2" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i15k4")
+
+[node name="Person3" parent="." instance=ExtResource("2_h5p5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11217, 0.89254, 3.95053)
+
+[node name="Person4" parent="." instance=ExtResource("2_h5p5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44771, 0.878722, 3.68866)
+
+[editable path="Person"]
+[editable path="Person2"]
