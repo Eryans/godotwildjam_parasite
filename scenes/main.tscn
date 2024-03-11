@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbnfy5mgpbw7u"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_g6wxm"]
+[ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_h5p5s"]
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("current_host")]
+script = ExtResource("1_g6wxm")
+current_host = NodePath("Person")
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354492, 0)
+use_collision = true
+size = Vector3(25, 0.25, 25)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7, 7.5)
+projection = 1
+size = 17.071
+far = 31.72
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.785522, 0.458377, -0.415747, 0.618834, -0.581845, 0.527733, 0, -0.671824, -0.740711, 0, 11.4122, 0)
+shadow_enabled = true
+
+[node name="Person" parent="." instance=ExtResource("2_h5p5s")]
+is_infected = null
+
+[node name="Person2" parent="." instance=ExtResource("2_h5p5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59564, 1.01686, 0)
+is_infected = null
