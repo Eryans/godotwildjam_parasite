@@ -25,7 +25,7 @@ func _process(_delta):
 			add_child(parasite)
 			parasite.global_transform.origin = current_host.global_transform.origin
 			var parasite_direction = shoot_ray().position - parasite.global_transform.origin
-			parasite.direction = parasite_direction.normalized()
+			parasite.shoot(parasite_direction.normalized())
 			current_host = null
 			return
 
@@ -56,7 +56,6 @@ func shoot_ray() -> Dictionary:
 
 
 func _on_parasite_infect_person(person:Person):
-	printt("Infected new person", person)
 	person.set_infected()
 	current_host = person
 	pass
