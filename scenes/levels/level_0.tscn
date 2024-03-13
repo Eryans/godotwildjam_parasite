@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt562jvh3yh8l"]
+
+[ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="1_qs8me"]
+[ext_resource type="Script" path="res://scripts/class/level_exit.gd" id="1_uxcfo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8vib"]
+size = Vector3(5.91, 4.14621, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ux8rm"]
+top_radius = 3.0
+bottom_radius = 3.0
+height = 1.0
+
+[node name="Level_0" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354492, 0)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(45, 0.25, 45)
+
+[node name="Person" parent="Floor" instance=ExtResource("1_qs8me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40622, 2.62204, 0)
+
+[node name="Person2" parent="Floor" instance=ExtResource("1_qs8me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59564, 1.01686, 0)
+
+[node name="Person3" parent="Floor" instance=ExtResource("1_qs8me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11217, 0.89254, 3.95053)
+
+[node name="Person4" parent="Floor" instance=ExtResource("1_qs8me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44771, 0.878722, 3.68866)
+
+[node name="StartingZone" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5229, 2.64563, -16.7667)
+
+[node name="LevelExit" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54658, 0.709847, 15.8967)
+script = ExtResource("1_uxcfo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelExit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644395, 0)
+shape = SubResource("BoxShape3D_u8vib")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelExit"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ux8rm")

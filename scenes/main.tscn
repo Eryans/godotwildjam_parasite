@@ -1,62 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbnfy5mgpbw7u"]
+[gd_scene load_steps=6 format=3 uid="uid://cbnfy5mgpbw7u"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_g6wxm"]
-[ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_h5p5s"]
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_me3d0"]
 [ext_resource type="Script" path="res://scripts/camera_control.gd" id="2_ogl05"]
+[ext_resource type="PackedScene" uid="uid://dt562jvh3yh8l" path="res://scenes/levels/level_0.tscn" id="4_s7s77"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_n8iri"]
+slide_on_slope = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw0pq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i15k4"]
-
-[node name="Main" type="Node3D" node_paths=PackedStringArray("current_host")]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_g6wxm")
-current_host = NodePath("Person")
 
-[node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354492, 0)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(45, 0.25, 45)
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("1_me3d0")
+
+[node name="Level_0" parent="LevelManager" instance=ExtResource("4_s7s77")]
 
 [node name="CameraControl" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, 0, 0, 0)
 shape = SubResource("SeparationRayShape3D_n8iri")
-spring_length = 6.0
+spring_length = 8.0
 script = ExtResource("2_ogl05")
 camera_speed = 4.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraControl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592488, 14.4075)
 projection = 1
-size = 17.071
+size = 22.5
+near = 0.001
 far = 31.72
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.785522, 0.458377, -0.415747, 0.618834, -0.581845, 0.527733, 0, -0.671824, -0.740711, 0, 11.4122, 0)
 shadow_enabled = true
-
-[node name="Person" parent="." instance=ExtResource("2_h5p5s")]
-
-[node name="body" parent="Person" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_uw0pq")
-
-[node name="Person2" parent="." instance=ExtResource("2_h5p5s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59564, 1.01686, 0)
-
-[node name="body" parent="Person2" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_i15k4")
-
-[node name="Person3" parent="." instance=ExtResource("2_h5p5s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11217, 0.89254, 3.95053)
-
-[node name="Person4" parent="." instance=ExtResource("2_h5p5s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44771, 0.878722, 3.68866)
-
-[node name="StartingZone" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1551, 2.64563, 18.9623)
-
-[editable path="Person"]
-[editable path="Person2"]

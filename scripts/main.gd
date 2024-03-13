@@ -3,6 +3,7 @@ extends Node3D
 @export var current_host: Person = null
 
 @onready var camera_control: CameraControl = $CameraControl
+@onready var level_manager: LevelManager = $LevelManager
 
 var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
 
@@ -11,6 +12,8 @@ const SPEED = 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	level_manager.load_level(0)
+	current_host = level_manager.get_patient_zero()
 	if current_host:
 		current_host.set_infected()
 		camera_control.target = current_host
