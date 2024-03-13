@@ -13,6 +13,7 @@ const SPEED = 5.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	EventManager.connect("level_change", _on_level_change)
+	EventManager.connect("parasite_died", _on_parasite_died)
 	level_manager.load_level(0)
 	current_host = level_manager.get_patient_zero()
 	if current_host:
@@ -23,7 +24,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var look_at_direction = shoot_ray()
+	var look_at_direction = camera_control.shoot_ray()
 	if current_host:
 		if Input.is_action_just_pressed("ui_accept"):
 			var parasite: Parasite = parasite_scn.instantiate()
@@ -34,9 +35,6 @@ func _process(_delta):
 			var parasite_direction = (
 				(look_at_direction + Vector3.UP) - (parasite.global_transform.origin)
 			)
-			print(parasite_direction.normalized())
-			print("no normalize", parasite_direction)
-
 			parasite.shoot(parasite_direction.normalized())
 			camera_control.target = parasite
 			current_host = null
@@ -56,20 +54,6 @@ func _process(_delta):
 			current_host.velocity.z = move_toward(current_host.velocity.z, 0, SPEED)
 
 
-func shoot_ray() -> Vector3:
-	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
-	var ray_length: int = 1000
-	var from: Vector3 = camera_control.camera.project_ray_origin(mouse_pos)
-	var to: Vector3 = from + camera_control.camera.project_ray_normal(mouse_pos) * ray_length
-	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
-	var ray_query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
-	ray_query.from = from
-	ray_query.to = to
-	ray_query.collision_mask = 2
-	var result: Dictionary = space.intersect_ray(ray_query)
-	if result.has("position"):
-		return result.position
-	return Vector3()
 
 
 func _on_parasite_infect_person(person: Person):
@@ -82,3 +66,6 @@ func _on_parasite_infect_person(person: Person):
 func _on_level_change(person: Person) -> void:
 	current_host = person
 	camera_control.target = current_host
+
+func _on_parasite_died() -> void:
+	print("dead :(")

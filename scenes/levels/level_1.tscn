@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk2c73oxvnwco"]
+[gd_scene load_steps=10 format=3 uid="uid://dk2c73oxvnwco"]
 
 [ext_resource type="Script" path="res://scripts/class/level_exit.gd" id="1_02rv5"]
+[ext_resource type="Texture2D" uid="uid://bcgxfxy4iydl0" path="res://assets/Floor_1m x 1m.png" id="1_tbeso"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_8q6tg"]
+[ext_resource type="Texture2D" uid="uid://bpmoof656sryl" path="res://assets/Wall_1m x 1m.png" id="4_bhinm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcskr"]
+albedo_texture = ExtResource("1_tbeso")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8vib"]
 size = Vector3(5.91, 4.14621, 1)
@@ -11,14 +16,21 @@ top_radius = 3.0
 bottom_radius = 3.0
 height = 1.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n858t"]
+albedo_texture = ExtResource("4_bhinm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j80jg"]
+albedo_texture = ExtResource("4_bhinm")
+
 [node name="Level_0" type="Node3D"]
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354492, 0)
+material_override = SubResource("StandardMaterial3D_tcskr")
 use_collision = true
 collision_layer = 3
 collision_mask = 3
-size = Vector3(45, 0.25, 45)
+size = Vector3(100, 0.25, 100)
 
 [node name="StartingZone" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766301, 2.64563, -16.7667)
@@ -45,8 +57,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59564, 0.662368, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89988, 1.55469, -8.58154)
+material_override = SubResource("StandardMaterial3D_n858t")
 size = Vector3(1, 4.10938, 28.2959)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50549, 1.55469, -8.4895)
+material_override = SubResource("StandardMaterial3D_j80jg")
 size = Vector3(1, 4.10938, 28.1118)

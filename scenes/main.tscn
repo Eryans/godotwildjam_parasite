@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbnfy5mgpbw7u"]
+[gd_scene load_steps=11 format=3 uid="uid://cbnfy5mgpbw7u"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_g6wxm"]
 [ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_me3d0"]
@@ -7,6 +7,28 @@
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_n8iri"]
 slide_on_slope = true
+
+[sub_resource type="Gradient" id="Gradient_d2ukx"]
+offsets = PackedFloat32Array(0.182432, 1)
+colors = PackedColorArray(0.0616036, 0.0759791, 0.141034, 1, 0.870588, 0.870588, 0.823529, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d12yk"]
+gradient = SubResource("Gradient_d2ukx")
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_kq80y"]
+
+[sub_resource type="Sky" id="Sky_ytvhb"]
+sky_material = SubResource("PhysicalSkyMaterial_kq80y")
+
+[sub_resource type="Environment" id="Environment_icenr"]
+background_mode = 2
+sky = SubResource("Sky_ytvhb")
+tonemap_mode = 3
+ssao_enabled = true
+ssao_radius = 0.5
+ssao_intensity = 5.0
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_d12yk")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_g6wxm")
@@ -31,5 +53,13 @@ near = 0.001
 far = 31.72
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.785522, 0.458377, -0.415747, 0.618834, -0.581845, 0.527733, 0, -0.671824, -0.740711, 0, 11.4122, 0)
+transform = Transform3D(0.785522, 0.458377, -0.415747, 0.611038, -0.680816, 0.403884, -0.0979163, -0.571297, -0.814882, -10.2196, 11.4122, 0)
+light_color = Color(0.0666667, 0.239216, 0.407843, 1)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.785522, 0.458377, -0.415747, -0.0904972, 0.749689, 0.655573, 0.612181, -0.477343, 0.630379, -10.2196, 11.4122, 0)
+light_color = Color(0.952941, 0.917647, 0.890196, 1)
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_icenr")
