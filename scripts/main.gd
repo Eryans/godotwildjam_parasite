@@ -2,7 +2,7 @@ extends Node3D
 
 @export var current_host: Person = null
 
-@onready var camera: Camera3D = $Camera3D
+@onready var camera_control: CameraControl = $CameraControl
 
 var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
 
@@ -13,6 +13,7 @@ const SPEED = 5.0
 func _ready():
 	if current_host:
 		current_host.set_infected()
+		camera_control.target = current_host
 	pass  # Replace with function body.
 
 
@@ -33,6 +34,7 @@ func _process(_delta):
 			print("no normalize", parasite_direction)
 
 			parasite.shoot(parasite_direction.normalized())
+			camera_control.target = parasite
 			current_host = null
 			return
 		# current_host.look_at(-shoot_ray().position, Vector3.UP)
@@ -53,8 +55,8 @@ func _process(_delta):
 func shoot_ray() -> Vector3:
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
 	var ray_length: int = 1000
-	var from: Vector3 = camera.project_ray_origin(mouse_pos)
-	var to: Vector3 = from + camera.project_ray_normal(mouse_pos) * ray_length
+	var from: Vector3 = camera_control.camera.project_ray_origin(mouse_pos)
+	var to: Vector3 = from + camera_control.camera.project_ray_normal(mouse_pos) * ray_length
 	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var ray_query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
 	ray_query.from = from
@@ -69,4 +71,5 @@ func shoot_ray() -> Vector3:
 func _on_parasite_infect_person(person: Person):
 	person.set_infected()
 	current_host = person
+	camera_control.target = current_host
 	pass

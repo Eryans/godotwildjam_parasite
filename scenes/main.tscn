@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbnfy5mgpbw7u"]
+[gd_scene load_steps=7 format=3 uid="uid://cbnfy5mgpbw7u"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_g6wxm"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_h5p5s"]
+[ext_resource type="Script" path="res://scripts/camera_control.gd" id="2_ogl05"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_n8iri"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw0pq"]
 
@@ -18,8 +21,15 @@ collision_layer = 3
 collision_mask = 3
 size = Vector3(45, 0.25, 45)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7, 7.5)
+[node name="CameraControl" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+shape = SubResource("SeparationRayShape3D_n8iri")
+spring_length = 6.0
+script = ExtResource("2_ogl05")
+camera_speed = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraControl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592488, 14.4075)
 projection = 1
 size = 17.071
 far = 31.72
@@ -44,6 +54,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11217, 0.89254, 3.95053)
 
 [node name="Person4" parent="." instance=ExtResource("2_h5p5s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44771, 0.878722, 3.68866)
+
+[node name="StartingZone" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1551, 2.64563, 18.9623)
 
 [editable path="Person"]
 [editable path="Person2"]
