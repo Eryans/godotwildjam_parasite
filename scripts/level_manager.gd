@@ -5,7 +5,8 @@ class_name LevelManager
 @onready var starting_point: Marker3D
 
 var player_to_spawn: PackedScene = preload("res://scenes/person.tscn")
-var player_instance:Person = null
+var player_instance: Person = null
+
 
 func _ready():
 	EventManager.connect("parasite_entered_exit", _on_parasite_entered_exit)
@@ -25,6 +26,7 @@ func load_level(level_num: int) -> void:
 	player_instance.is_infected = true
 	add_child(player_instance)
 	player_instance.global_transform.origin = starting_point.global_transform.origin
+	EventManager.level_change.emit(player_instance)
 
 
 func _on_parasite_entered_exit() -> void:

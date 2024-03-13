@@ -12,6 +12,7 @@ const SPEED = 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	EventManager.connect("level_change", _on_level_change)
 	level_manager.load_level(0)
 	current_host = level_manager.get_patient_zero()
 	if current_host:
@@ -76,3 +77,8 @@ func _on_parasite_infect_person(person: Person):
 	current_host = person
 	camera_control.target = current_host
 	pass
+
+
+func _on_level_change(person: Person) -> void:
+	current_host = person
+	camera_control.target = current_host

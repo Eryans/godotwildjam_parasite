@@ -14,6 +14,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if target:
+	if target != null:
 		global_transform.origin = global_transform.origin.lerp(target.global_transform.origin, camera_speed * delta)
 	pass
