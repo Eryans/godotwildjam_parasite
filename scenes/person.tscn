@@ -29,9 +29,10 @@ shape = SubResource("CapsuleShape3D_niflc")
 mesh = SubResource("CapsuleMesh_3x6ol")
 surface_material_override/0 = SubResource("StandardMaterial3D_avi5l")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354, 0.469524)
 mesh = SubResource("BoxMesh_1pwpn")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_6bmcb")
 
 [node name="Hitbox" type="Area3D" parent="."]
