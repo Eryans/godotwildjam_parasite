@@ -16,6 +16,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	if current_state == person_state.INFECTED:
 		material.albedo_color = Color(1, 0, 0)
+	if stronger:
+		scale *= 1.4
 
 
 func _physics_process(delta):

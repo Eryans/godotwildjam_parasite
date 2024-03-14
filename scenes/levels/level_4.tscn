@@ -37,7 +37,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0421821, 2.64563, -26.7012)
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="Person2" parent="Entities" instance=ExtResource("3_oo8qp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0323422, 0.662368, -5.53399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0323422, 0.662368, -11.8646)
+stronger = true
 
 [node name="Person3" parent="Entities" instance=ExtResource("3_oo8qp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3191, 0.662368, -26.148)

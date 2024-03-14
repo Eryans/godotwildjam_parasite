@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var current_host: Person = null
+@export var starting_level:int = 0
 
 @onready var camera_control: CameraControl = $CameraControl
 @onready var level_manager: LevelManager = $LevelManager
@@ -13,7 +14,7 @@ const SPEED = 5.0
 func _ready():
 	EventManager.connect("level_change", _on_level_change)
 	EventManager.connect("parasite_died", _on_parasite_died)
-	level_manager.load_level(0)
+	level_manager.load_level(starting_level)
 	current_host = level_manager.get_patient_zero()
 	if current_host:
 		current_host.set_infected()

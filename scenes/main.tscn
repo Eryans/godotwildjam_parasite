@@ -31,6 +31,7 @@ adjustment_color_correction = SubResource("GradientTexture1D_d12yk")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_g6wxm")
+starting_level = 4
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("1_me3d0")
