@@ -25,6 +25,8 @@ func load_level(level_num: int) -> void:
 	# instance.global_rotation.y = -45
 	starting_point = instance.get_node("StartingZone")
 	player_instance = player_to_spawn.instantiate()
+	if instance.has_meta("stronger_start_char") && instance.get_meta("stronger_start_char"):
+		player_instance.stronger = true
 	player_instance.current_state = player_instance.person_state.INFECTED
 	add_child(player_instance)
 	player_instance.global_transform.origin = starting_point.global_transform.origin
