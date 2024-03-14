@@ -32,7 +32,10 @@ func shoot(direction) -> void:
 
 
 func infection(person: Person):
-	if !person.is_infected:
+	if (
+		person.current_state == person.person_state.CLEAN
+		|| person.current_state == person.person_state.STUNNED
+	):
 		infect_person.emit(person)
 		queue_free()
 

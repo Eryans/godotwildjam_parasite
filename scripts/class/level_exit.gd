@@ -10,5 +10,5 @@ func _ready():
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Person:
-		if body.is_infected:
+		if body.current_state == body.person_state.INFECTED:
 			EventManager.parasite_entered_exit.emit()

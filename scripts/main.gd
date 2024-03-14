@@ -13,7 +13,7 @@ const SPEED = 5.0
 func _ready():
 	EventManager.connect("level_change", _on_level_change)
 	EventManager.connect("parasite_died", _on_parasite_died)
-	level_manager.load_level(3)
+	level_manager.load_level(0)
 	current_host = level_manager.get_patient_zero()
 	if current_host:
 		current_host.set_infected()
@@ -34,7 +34,7 @@ func _process(_delta):
 			)
 			parasite.shoot(parasite_direction.normalized())
 			camera_control.target = parasite
-			current_host.set_dead()
+			current_host.set_dead_or_stunned()
 			current_host = null
 			return
 
