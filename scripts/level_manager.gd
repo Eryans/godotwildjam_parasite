@@ -13,6 +13,7 @@ func _ready():
 
 
 func load_level(level_num: int) -> void:
+	current_level = level_num
 	var level_path: String = "res://scenes/levels/level_{num}.tscn".format({"num": level_num})
 	for child in get_children():
 		# Empty level first
@@ -24,7 +25,9 @@ func load_level(level_num: int) -> void:
 	# instance.global_rotation.y = -45
 	starting_point = instance.get_node("StartingZone")
 	player_instance = player_to_spawn.instantiate()
-	player_instance.is_infected = true
+	if instance.has_meta("stronger_start_char") && instance.get_meta("stronger_start_char"):
+		player_instance.stronger = true
+	player_instance.current_state = player_instance.person_state.INFECTED
 	add_child(player_instance)
 	player_instance.global_transform.origin = starting_point.global_transform.origin
 	EventManager.level_change.emit(player_instance)
