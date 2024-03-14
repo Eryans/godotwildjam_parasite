@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbxhmlb2bf8rn"]
+
+[ext_resource type="Texture2D" uid="uid://bcgxfxy4iydl0" path="res://assets/Floor_1m x 1m.png" id="1_u2thp"]
+[ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="3_il81x"]
+[ext_resource type="Texture2D" uid="uid://bpmoof656sryl" path="res://assets/Wall_1m x 1m.png" id="4_cbrea"]
+[ext_resource type="PackedScene" uid="uid://57x4lgy73f4b" path="res://scenes/objects/LevelExit.tscn" id="4_iee0w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcskr"]
+albedo_texture = ExtResource("1_u2thp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n858t"]
+albedo_texture = ExtResource("4_cbrea")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j80jg"]
+albedo_texture = ExtResource("4_cbrea")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usujj"]
+albedo_texture = ExtResource("4_cbrea")
+
+[node name="Level_0" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354492, 0)
+material_override = SubResource("StandardMaterial3D_tcskr")
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(100, 0.25, 100)
+
+[node name="StartingZone" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766301, 2.64563, -24.3566)
+
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="Person2" parent="Entities" instance=ExtResource("3_il81x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0323422, 0.662368, -13.0555)
+
+[node name="Person3" parent="Entities" instance=ExtResource("3_il81x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6916, 0.662368, -19.3597)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58349, 1.55469, -13.069)
+material_override = SubResource("StandardMaterial3D_n858t")
+use_collision = true
+size = Vector3(1, 4.10938, 19.3209)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82188, 1.55469, -16.1309)
+material_override = SubResource("StandardMaterial3D_j80jg")
+use_collision = true
+size = Vector3(1, 4.10938, 12.829)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82188, 0.210206, -6.80496)
+material_override = SubResource("StandardMaterial3D_j80jg")
+use_collision = true
+size = Vector3(1, 1.42041, 6.17706)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8219, 1.55469, -17.8942)
+material_override = SubResource("StandardMaterial3D_j80jg")
+use_collision = true
+size = Vector3(1, 4.10938, 28.3555)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97536, 1.55469, -4.00993)
+material_override = SubResource("StandardMaterial3D_usujj")
+use_collision = true
+size = Vector3(24, 4.10938, 1.19824)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9754, 1.55469, -31.4421)
+material_override = SubResource("StandardMaterial3D_usujj")
+use_collision = true
+size = Vector3(12, 4.10938, 1.19824)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245467, 1.65948, -26.0586)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(12, 3.80957, 12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21231, 0)
+layers = 0
+operation = 2
+size = Vector3(10, 6.46771, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.696927, 3.61595)
+layers = 0
+operation = 2
+size = Vector3(2.25, 3.16099, 10)
+
+[node name="LevelExit" parent="." instance=ExtResource("4_iee0w")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.1535, -0.229494, -30.4409)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://57x4lgy73f4b"]
+
+[ext_resource type="Script" path="res://scripts/class/level_exit.gd" id="1_7fl4r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8vib"]
+size = Vector3(5.91, 4.14621, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ux8rm"]
+top_radius = 3.0
+bottom_radius = 3.0
+height = 1.0
+
+[node name="LevelExit" type="Area3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.751, 0.709847, -26.0228)
+script = ExtResource("1_7fl4r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644395, 0)
+shape = SubResource("BoxShape3D_u8vib")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ux8rm")

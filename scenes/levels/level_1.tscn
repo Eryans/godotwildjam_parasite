@@ -1,25 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://dk2c73oxvnwco"]
+[gd_scene load_steps=9 format=3 uid="uid://dk2c73oxvnwco"]
 
-[ext_resource type="Script" path="res://scripts/class/level_exit.gd" id="1_02rv5"]
 [ext_resource type="Texture2D" uid="uid://bcgxfxy4iydl0" path="res://assets/Floor_1m x 1m.png" id="1_tbeso"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_8q6tg"]
+[ext_resource type="PackedScene" uid="uid://57x4lgy73f4b" path="res://scenes/objects/LevelExit.tscn" id="2_w0d1o"]
 [ext_resource type="Texture2D" uid="uid://bpmoof656sryl" path="res://assets/Wall_1m x 1m.png" id="4_bhinm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcskr"]
 albedo_texture = ExtResource("1_tbeso")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u8vib"]
-size = Vector3(5.91, 4.14621, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_ux8rm"]
-top_radius = 3.0
-bottom_radius = 3.0
-height = 1.0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n858t"]
 albedo_texture = ExtResource("4_bhinm")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j80jg"]
+albedo_texture = ExtResource("4_bhinm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usujj"]
 albedo_texture = ExtResource("4_bhinm")
 
 [node name="Level_0" type="Node3D"]
@@ -33,34 +28,49 @@ collision_mask = 7
 size = Vector3(100, 0.25, 100)
 
 [node name="StartingZone" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766301, 2.64563, -16.7667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766301, 2.64563, -24.3566)
 
-[node name="LevelExit" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274253, 0.709847, 5.72382)
-script = ExtResource("1_02rv5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelExit"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644395, 0)
-shape = SubResource("BoxShape3D_u8vib")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelExit"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("CylinderMesh_ux8rm")
+[node name="LevelExit" parent="." instance=ExtResource("2_w0d1o")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -0.0976982, 0.709847, 3.80935)
 
 [node name="Entities" type="Node3D" parent="."]
 
-[node name="Person" parent="Entities" instance=ExtResource("2_8q6tg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40622, 2.26755, 0)
-
 [node name="Person2" parent="Entities" instance=ExtResource("2_8q6tg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59564, 0.662368, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0323422, 0.662368, -4.96577)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89988, 1.55469, -8.58154)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58349, 1.55469, -8.58154)
 material_override = SubResource("StandardMaterial3D_n858t")
+use_collision = true
 size = Vector3(1, 4.10938, 28.2959)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50549, 1.55469, -8.4895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82188, 1.55469, -8.4895)
 material_override = SubResource("StandardMaterial3D_j80jg")
+use_collision = true
 size = Vector3(1, 4.10938, 28.1118)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0246409, 1.55469, 4.86155)
+material_override = SubResource("StandardMaterial3D_usujj")
+use_collision = true
+size = Vector3(12, 4.10938, 1.19824)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245467, 1.65948, -26.0586)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(12, 3.80957, 12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21231, 0)
+layers = 0
+operation = 2
+size = Vector3(10, 6.46771, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.696927, 3.61595)
+layers = 0
+operation = 2
+size = Vector3(2.25, 3.16099, 10)

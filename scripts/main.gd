@@ -13,7 +13,7 @@ const SPEED = 5.0
 func _ready():
 	EventManager.connect("level_change", _on_level_change)
 	EventManager.connect("parasite_died", _on_parasite_died)
-	level_manager.load_level(0)
+	level_manager.load_level(3)
 	current_host = level_manager.get_patient_zero()
 	if current_host:
 		current_host.set_infected()
