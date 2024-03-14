@@ -62,7 +62,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.50402, 0.562066, -15.1725)
 event_items = [NodePath("../Door2"), NodePath("../DeadZone")]
 
 [node name="DeadZone" parent="Objects" instance=ExtResource("6_e11r8")]
+transform = Transform3D(1.00181, 0, 0, 0, 1.00181, 0, 0, 0, 1.00181, 0, 0, -15.1086)
 is_active = true
+size = Vector3(11, 0.25, 5)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19851, 1.55469, -10.6385)

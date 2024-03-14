@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/class/parasite.gd" id="1_yk3q1"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3lqsf"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_abhow"]
+size = Vector3(1, 0.483765, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_q77q1"]
 
@@ -12,7 +13,8 @@ collision_mask = 2
 script = ExtResource("1_yk3q1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_3lqsf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.242098, 0)
+shape = SubResource("BoxShape3D_abhow")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_q77q1")

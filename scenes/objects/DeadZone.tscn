@@ -3,16 +3,15 @@
 [ext_resource type="Script" path="res://scripts/class/dead_zone.gd" id="1_tnc4f"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r8ope"]
-size = Vector3(10, 0.25, 5)
+size = Vector3(1, 0.25, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alef0"]
 albedo_color = Color(0.603922, 0, 0.0705882, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rhf5y"]
-points = PackedVector3Array(5.07738, 0.271825, 2.65873, -5.07738, -0.204365, -2.57937, -5.07738, 0.271825, -2.57937, 5.07738, -0.204365, -2.57937, -5.07738, -0.204365, 2.65873, -5.07738, 0.271825, 2.65873, 5.07738, 0.271825, -2.57937, 5.07738, -0.204365, 2.65873)
+[sub_resource type="BoxShape3D" id="BoxShape3D_dlc33"]
+size = Vector3(1, 0.25, 1)
 
 [node name="DeadZone" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.288696, 0, -15.0123)
 script = ExtResource("1_tnc4f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -20,4 +19,4 @@ mesh = SubResource("BoxMesh_r8ope")
 surface_material_override/0 = SubResource("StandardMaterial3D_alef0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_rhf5y")
+shape = SubResource("BoxShape3D_dlc33")
