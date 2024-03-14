@@ -7,6 +7,7 @@ extends Node3D
 @onready var level_manager: LevelManager = $LevelManager
 
 var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
+var is_gameover: bool = false
 
 const SPEED = 5.0
 
@@ -24,8 +25,14 @@ func _ready():
 
 
 func _process(_delta):
-	if current_host:
-		if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_enter") && is_gameover:
+		is_gameover = false
+		level_manager.load_level(level_manager.current_level)
+		
+
+
+	if current_host && !is_gameover:
+		if Input.is_action_just_pressed("shoot"):
 			var parasite: Parasite = parasite_scn.instantiate()
 			parasite.connect("infect_person", _on_parasite_infect_person)
 			add_child(parasite)
@@ -42,6 +49,7 @@ func _process(_delta):
 
 		var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		var direction = Vector3(input_dir.x, 0, input_dir.y).normalized()
+		
 		if direction:
 			current_host.velocity.x = direction.x * SPEED
 			current_host.velocity.z = direction.z * SPEED
@@ -72,4 +80,6 @@ func _on_parasite_enter_deadzone() -> void:
 
 
 func gameover() -> void:
+	is_gameover = true
+	current_host.current_state = current_host.person_state.DEAD
 	print("DEAD X_X")

@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://scripts/class/dead_zone.gd" id="1_tnc4f"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r8ope"]
-size = Vector3(1, 0.25, 1)
+size = Vector3(11, 0.25, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alef0"]
 albedo_color = Color(0.603922, 0, 0.0705882, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dlc33"]
-size = Vector3(1, 0.25, 1)
+size = Vector3(11, 0.25, 5)
 
 [node name="DeadZone" type="Area3D"]
 script = ExtResource("1_tnc4f")
