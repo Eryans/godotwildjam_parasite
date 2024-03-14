@@ -46,8 +46,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3191, 0.662368, -26.148)
 
 [node name="Door" parent="Objects" instance=ExtResource("4_a4iic")]
 
-[node name="DoorButton" parent="Objects" instance=ExtResource("5_hme4l")]
+[node name="DoorButton" parent="Objects" node_paths=PackedStringArray("door") instance=ExtResource("5_hme4l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.562066, -1.99286)
+door = NodePath("../Door")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19851, 1.55469, -20.7399)

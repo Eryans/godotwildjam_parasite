@@ -1,9 +1,9 @@
 extends RigidBody3D
 class_name Parasite
 
-@export var force: float = 5.0
+@export var force: float = 15.0
 @export var parasite_lifespan: float = 5
-@export var parasite_can_infect_countdown: float = .5
+@export var parasite_can_infect_countdown: float = .1
 
 @onready var can_jump: bool = true
 @onready var target: Vector3 = Vector3()
@@ -20,8 +20,8 @@ func _ready():
 	timer.connect("timeout", _on_timer_timeout)
 	timer.start(parasite_lifespan)
 	add_child(can_infect_timer)
-	timer.connect("timeout", _on_can_infect_timer_timeout)
-	timer.start(parasite_can_infect_countdown)
+	can_infect_timer.connect("timeout", _on_can_infect_timer_timeout)
+	can_infect_timer.start(parasite_can_infect_countdown)
 	pass
 
 
