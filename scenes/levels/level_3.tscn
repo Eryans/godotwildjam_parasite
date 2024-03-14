@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="3_w6vwt"]
 [ext_resource type="PackedScene" uid="uid://cpcji4q5gpgyq" path="res://scenes/objects/Door.tscn" id="4_a4iic"]
 [ext_resource type="Texture2D" uid="uid://bpmoof656sryl" path="res://assets/Wall_1m x 1m.png" id="4_w745t"]
-[ext_resource type="PackedScene" uid="uid://bv7ibrnkch1uu" path="res://scenes/objects/DoorButton.tscn" id="5_hme4l"]
+[ext_resource type="PackedScene" uid="uid://bv7ibrnkch1uu" path="res://scenes/objects/EventTriggerer.tscn" id="5_hme4l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcskr"]
 albedo_texture = ExtResource("1_1gx6v")
@@ -46,9 +46,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3191, 0.662368, -26.148)
 
 [node name="Door" parent="Objects" instance=ExtResource("4_a4iic")]
 
-[node name="DoorButton" parent="Objects" node_paths=PackedStringArray("door") instance=ExtResource("5_hme4l")]
+[node name="DoorButton" parent="Objects" instance=ExtResource("5_hme4l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.562066, -1.99286)
-door = NodePath("../Door")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19851, 1.55469, -20.7399)

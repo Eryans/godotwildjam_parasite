@@ -1,17 +1,18 @@
 extends Area3D
-class_name DoorButton
+class_name EventTriggerer
 
-@export var door: Door = null
+@export var event_items: Array[EventItem] = []
 
 
 func _ready():
 	monitoring = true
-	pass  
+	pass
+
 
 func _process(_delta):
-	var bodies:Array[Node3D] = get_overlapping_bodies()
+	var bodies: Array[Node3D] = get_overlapping_bodies()
 	for body in bodies:
 		if body is Person && body.current_state == body.person_state.INFECTED:
 			if Input.is_action_just_pressed("ui_action"):
-				door.toggle_door_open_state()
-
+				for item in event_items:
+					item.activate()

@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends EventItem
 class_name Door
 
 @export var is_open: bool = false
@@ -9,7 +9,7 @@ func _ready() -> void:
 	pass
 
 
-func toggle_door_open_state() -> void:
+func activate() -> void:
 	print("set door open")
 	is_open = !is_open
 	collider.disabled = is_open
