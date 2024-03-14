@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbnfy5mgpbw7u"]
+[gd_scene load_steps=10 format=3 uid="uid://cbnfy5mgpbw7u"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_g6wxm"]
 [ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_me3d0"]
 [ext_resource type="Script" path="res://scripts/camera_control.gd" id="2_ogl05"]
-[ext_resource type="PackedScene" uid="uid://dt562jvh3yh8l" path="res://scenes/levels/level_0.tscn" id="4_s7s77"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_n8iri"]
 slide_on_slope = true
@@ -36,10 +35,9 @@ script = ExtResource("1_g6wxm")
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("1_me3d0")
 
-[node name="Level_0" parent="LevelManager" instance=ExtResource("4_s7s77")]
-
 [node name="CameraControl" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, 0, 0, 0)
+collision_mask = 0
 shape = SubResource("SeparationRayShape3D_n8iri")
 spring_length = 8.0
 script = ExtResource("2_ogl05")
@@ -48,7 +46,8 @@ camera_speed = 4.0
 [node name="Camera3D" type="Camera3D" parent="CameraControl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592488, 14.4075)
 projection = 1
-size = 22.5
+fov = 113.1
+size = 25.0
 near = 0.001
 far = 31.72
 

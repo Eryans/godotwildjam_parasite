@@ -10,7 +10,6 @@ var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
 const SPEED = 5.0
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	EventManager.connect("level_change", _on_level_change)
 	EventManager.connect("parasite_died", _on_parasite_died)
@@ -19,12 +18,10 @@ func _ready():
 	if current_host:
 		current_host.set_infected()
 		camera_control.target = current_host
-	pass  # Replace with function body.
+	pass  
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var look_at_direction = camera_control.shoot_ray()
 	if current_host:
 		if Input.is_action_just_pressed("ui_accept"):
 			var parasite: Parasite = parasite_scn.instantiate()
@@ -33,17 +30,14 @@ func _process(_delta):
 			# Make the parasite start a little bit higher for a better shooting angle
 			parasite.global_transform.origin = current_host.global_transform.origin + Vector3.UP
 			var parasite_direction = (
-				(look_at_direction + Vector3.UP) - (parasite.global_transform.origin)
+				(camera_control.shoot_ray() + Vector3.UP) - (parasite.global_transform.origin)
 			)
 			parasite.shoot(parasite_direction.normalized())
 			camera_control.target = parasite
+			current_host.set_dead()
 			current_host = null
 			return
-		# current_host.look_at(-shoot_ray().position, Vector3.UP)
-		current_host.mesh.rotation.y = lerp_angle(
-			current_host.rotation.y, atan2(look_at_direction.x, look_at_direction.z), 1
-		)  # Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
+
 		var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		var direction = Vector3(input_dir.x, 0, input_dir.y).normalized()
 		if direction:
