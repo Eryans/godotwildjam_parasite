@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://mlf4jnkycdds"]
+
+[ext_resource type="ArrayMesh" uid="uid://bhuqwc2ytd0ub" path="res://assets/meshs/level_assets_Plane.res" id="1_7xrrj"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wr5ms"]
+data = PackedVector3Array(-1, -0.2218, 0, 1, 1, 0, 1, -0.2218, 0, -1, -0.2218, 0, -1, 1, 0, 1, 1, 0, -1, -0.2218, -0.1, 1, 1, -0.1, -1, 1, -0.1, -1, -0.2218, -0.1, 1, -0.2218, -0.1, 1, 1, -0.1, -1, 1, 0, -1, -0.2218, -0.1, -1, 1, -0.1, -1, 1, 0, -1, -0.2218, 0, -1, -0.2218, -0.1, 1, -0.2218, 0, 1, 1, -0.1, 1, -0.2218, -0.1, 1, -0.2218, 0, 1, 1, 0, 1, 1, -0.1, 1, 1, 0, -1, 1, -0.1, 1, 1, -0.1, 1, 1, 0, -1, 1, 0, -1, 1, -0.1, -1, -1.2, 0, 1, -0.2218, 0, 1, -1.2, 0, -1, -1.2, 0, -1, -0.2218, 0, 1, -0.2218, 0, -1, -1.2, -0.1, 1, -0.2218, -0.1, -1, -0.2218, -0.1, -1, -1.2, -0.1, 1, -1.2, -0.1, 1, -0.2218, -0.1, -1, -0.2218, 0, -1, -1.2, -0.1, -1, -0.2218, -0.1, -1, -0.2218, 0, -1, -1.2, 0, -1, -1.2, -0.1, 1, -1.2, 0, 1, -0.2218, -0.1, 1, -1.2, -0.1, 1, -1.2, 0, 1, -0.2218, 0, 1, -0.2218, -0.1, -1, -1.2, 0, 1, -1.2, -0.1, -1, -1.2, -0.1, -1, -1.2, 0, 1, -1.2, 0, 1, -1.2, -0.1)
+
+[node name="Wall" type="Node3D"]
+
+[node name="LevelAssetsPlane002" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.139, 0)
+mesh = ExtResource("1_7xrrj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LevelAssetsPlane002"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelAssetsPlane002/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wr5ms")

@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddjwnc62jj1he"]
+
+[ext_resource type="ArrayMesh" uid="uid://bjvwaml5374v7" path="res://assets/meshs/level_assets_Cube.res" id="1_rsbby"]
+
+[node name="Floor-Room - 5x3" type="Node3D"]
+
+[node name="LevelAssetsCube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube10" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsCube16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+mesh = ExtResource("1_rsbby")
+skeleton = NodePath("../..")
