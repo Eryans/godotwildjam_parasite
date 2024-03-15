@@ -8,6 +8,7 @@ extends Node3D
 
 var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
 var is_gameover: bool = false
+var parasite: Parasite
 
 const SPEED = 4.0
 
@@ -31,7 +32,7 @@ func _process(_delta):
 
 	if current_host && !is_gameover:
 		if Input.is_action_just_pressed("shoot"):
-			var parasite: Parasite = parasite_scn.instantiate()
+			parasite = parasite_scn.instantiate()
 			parasite.connect("infect_person", _on_parasite_infect_person)
 			add_child(parasite)
 			# Make the parasite start a little bit higher for a better shooting angle
@@ -76,5 +77,7 @@ func _on_parasite_enter_deadzone() -> void:
 
 func gameover() -> void:
 	is_gameover = true
+	if parasite != null:
+		parasite.queue_free()
 	# current_host.current_state = current_host.person_state.DEAD
 	print("DEAD X_X")

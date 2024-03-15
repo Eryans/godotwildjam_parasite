@@ -9,6 +9,8 @@ size = Vector3(1, 0.483765, 1)
 [node name="Parasite" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 2
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 script = ExtResource("1_yk3q1")
 parasite_can_infect_countdown = 0.05
 

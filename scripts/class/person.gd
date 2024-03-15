@@ -23,12 +23,15 @@ func _ready():
 
 func _physics_process(delta):
 	if current_state == person_state.INFECTED:
+		parasite_mesh.visible = true
 		var look_at_direction = camera_control.shoot_ray() - global_transform.origin
 		var target_rotation = atan2(look_at_direction.x, look_at_direction.z)
 		if target_rotation < 0:
 			target_rotation += 2 * PI
 
 		rotation.y = lerp_angle(rotation.y, target_rotation, 1)
+	else:
+		parasite_mesh.visible = false
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	move_and_slide()
@@ -37,10 +40,8 @@ func _physics_process(delta):
 func set_infected() -> void:
 	current_state = person_state.INFECTED
 	material.albedo_color = Color(1, 0, 0)
-	parasite_mesh.visible = true
 
 
 func set_dead_or_stunned() -> void:
 	current_state = person_state.DEAD if !stronger else person_state.STUNNED
 	is_dead = true
-	parasite_mesh.visible = false
