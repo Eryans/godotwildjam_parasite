@@ -1,23 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://57x4lgy73f4b"]
+[gd_scene load_steps=6 format=3 uid="uid://57x4lgy73f4b"]
 
 [ext_resource type="Script" path="res://scripts/class/level_exit.gd" id="1_7fl4r"]
+[ext_resource type="ArrayMesh" uid="uid://ogbl1x6dsf3c" path="res://assets/meshs/level_assets_Plane_021.res" id="2_yvfpg"]
+[ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="3_bvr0i"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u8vib"]
-size = Vector3(5.91, 4.14621, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_haiac"]
+size = Vector3(2, 2.19702, 0.234021)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_ux8rm"]
-top_radius = 3.0
-bottom_radius = 3.0
-height = 1.0
+[sub_resource type="BoxMesh" id="BoxMesh_wf1cr"]
 
 [node name="LevelExit" type="Area3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_7fl4r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644395, 0)
-shape = SubResource("BoxShape3D_u8vib")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0984029, -0.0751404)
+shape = SubResource("BoxShape3D_haiac")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("CylinderMesh_ux8rm")
+mesh = ExtResource("2_yvfpg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1.55278, 0, 0, 0, 1.95208, 0, 0, 0, 0.19465, 0, -0.213151, -0.123854)
+material_override = ExtResource("3_bvr0i")
+mesh = SubResource("BoxMesh_wf1cr")

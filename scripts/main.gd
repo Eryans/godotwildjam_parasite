@@ -76,5 +76,5 @@ func _on_parasite_enter_deadzone() -> void:
 
 func gameover() -> void:
 	is_gameover = true
-	current_host.current_state = current_host.person_state.DEAD
+	# current_host.current_state = current_host.person_state.DEAD
 	print("DEAD X_X")

@@ -12,6 +12,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.139, 0)
 mesh = ExtResource("1_7xrrj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LevelAssetsPlane002"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelAssetsPlane002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wr5ms")

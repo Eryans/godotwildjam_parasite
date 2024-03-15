@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dk2c73oxvnwco"]
+[gd_scene load_steps=16 format=3 uid="uid://dk2c73oxvnwco"]
 
 [ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="1_goe4y"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_8q6tg"]
@@ -14,22 +14,20 @@
 [ext_resource type="PackedScene" uid="uid://byt6knck7i5es" path="res://scenes/LevelAssets/fence_1.tscn" id="10_7mi1u"]
 [ext_resource type="PackedScene" uid="uid://dxtktnl83bspl" path="res://scenes/LevelAssets/room_3_holes.tscn" id="10_netrn"]
 [ext_resource type="PackedScene" uid="uid://cbn31sp0stj0v" path="res://scenes/LevelAssets/wall_door_closed.tscn" id="11_jatuj"]
+[ext_resource type="PackedScene" uid="uid://dbonx084yubwa" path="res://scenes/LevelAssets/corridor_corner.tscn" id="12_5b317"]
 
-[node name="Level_0" type="Node3D"]
+[node name="Level_1" type="Node3D"]
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.179287, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.92578, -0.179287, 22.432)
 material_override = ExtResource("1_goe4y")
 use_collision = true
 collision_layer = 7
 collision_mask = 7
-size = Vector3(100, 0.25, 100)
+size = Vector3(174.801, 0.25, 144.864)
 
 [node name="StartingZone" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8706, 2.64563, -27.3821)
-
-[node name="LevelExit" parent="." instance=ExtResource("2_w0d1o")]
-transform = Transform3D(0.507903, 0, -5.41329e-15, 0, 0.507903, 0, 5.41329e-15, 0, 0.507903, 0.902302, 0.709847, 38.647)
 
 [node name="Entities" type="Node3D" parent="."]
 
@@ -106,16 +104,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -21)
 
 [node name="Fence 1" parent="." instance=ExtResource("10_7mi1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 23)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1299, 0, 23)
 
 [node name="Fence 2" parent="." instance=ExtResource("10_7mi1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1035, 0, 20)
 
 [node name="Fence 3" parent="." instance=ExtResource("10_7mi1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 17)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.11818, 0, 17)
 
 [node name="Fence 2x3" parent="." instance=ExtResource("7_jlg3w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -2.99905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -1.99905)
 
 [node name="Room-1 HOLE2" parent="." instance=ExtResource("8_5mu5u")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 0, 4)
@@ -126,14 +124,20 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 1,
 [node name="Wall Door" parent="Room-1 HOLE2" instance=ExtResource("8_f3p4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 1, 3)
 
+[node name="Corridor Corner" parent="." instance=ExtResource("12_5b317")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 31)
+
 [node name="Room-1 HOLE5" parent="." instance=ExtResource("8_5mu5u")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 36)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 38)
 
 [node name="Wall Door6" parent="Room-1 HOLE5" instance=ExtResource("8_f3p4x")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 1, 1.19209e-07)
 
 [node name="Wall" parent="Room-1 HOLE5" instance=ExtResource("8_bh8bk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+
+[node name="LevelExit" parent="Room-1 HOLE5" instance=ExtResource("2_w0d1o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.78246, 1.14926, 0.0976982)
 
 [node name="Wall Door3" parent="." instance=ExtResource("8_f3p4x")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 1, 4)
