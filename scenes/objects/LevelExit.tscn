@@ -11,7 +11,7 @@ bottom_radius = 3.0
 height = 1.0
 
 [node name="LevelExit" type="Area3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.751, 0.709847, -26.0228)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_7fl4r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

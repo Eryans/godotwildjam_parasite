@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3vt1qo8fo5fb"]
+
+[ext_resource type="ArrayMesh" uid="uid://or470ed75ydp" path="res://assets/meshs/level_assets_Plane_007.res" id="1_ragdq"]
+
+[node name="Floor-Corridor 2x4" type="Node3D"]
+
+[node name="LevelAssetsPlane007" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+mesh = ExtResource("1_ragdq")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsPlane008" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3)
+mesh = ExtResource("1_ragdq")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsPlane009" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+mesh = ExtResource("1_ragdq")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsPlane010" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+mesh = ExtResource("1_ragdq")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsPlane011" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh = ExtResource("1_ragdq")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsPlane012" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+mesh = ExtResource("1_ragdq")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsPlane013" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+mesh = ExtResource("1_ragdq")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsPlane014" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+mesh = ExtResource("1_ragdq")
+skeleton = NodePath("../..")

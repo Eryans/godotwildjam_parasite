@@ -9,7 +9,7 @@ extends Node3D
 var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
 var is_gameover: bool = false
 
-const SPEED = 5.0
+const SPEED = 4.0
 
 
 func _ready():

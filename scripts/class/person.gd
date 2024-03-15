@@ -27,7 +27,7 @@ func _physics_process(delta):
 		if target_rotation < 0:
 			target_rotation += 2 * PI
 
-		mesh.rotation.y = lerp_angle(mesh.rotation.y, target_rotation, 1)
+		rotation.y = lerp_angle(rotation.y, target_rotation, 1)
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	move_and_slide()

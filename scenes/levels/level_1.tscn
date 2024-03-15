@@ -1,76 +1,79 @@
-[gd_scene load_steps=9 format=3 uid="uid://dk2c73oxvnwco"]
+[gd_scene load_steps=12 format=3 uid="uid://dk2c73oxvnwco"]
 
-[ext_resource type="Texture2D" uid="uid://bcgxfxy4iydl0" path="res://assets/Floor_1m x 1m.png" id="1_tbeso"]
+[ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="1_goe4y"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_8q6tg"]
 [ext_resource type="PackedScene" uid="uid://57x4lgy73f4b" path="res://scenes/objects/LevelExit.tscn" id="2_w0d1o"]
-[ext_resource type="Texture2D" uid="uid://bpmoof656sryl" path="res://assets/Wall_1m x 1m.png" id="4_bhinm"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcskr"]
-albedo_texture = ExtResource("1_tbeso")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n858t"]
-albedo_texture = ExtResource("4_bhinm")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j80jg"]
-albedo_texture = ExtResource("4_bhinm")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usujj"]
-albedo_texture = ExtResource("4_bhinm")
+[ext_resource type="PackedScene" uid="uid://w56k87uq533" path="res://scenes/LevelAssets/room_1_hole.tscn" id="5_ueia7"]
+[ext_resource type="PackedScene" uid="uid://banqvl700jv6m" path="res://scenes/LevelAssets/corridor_2x_4.tscn" id="6_3w5mb"]
+[ext_resource type="PackedScene" uid="uid://l7r5v8ktcq1i" path="res://scenes/LevelAssets/fence_2x_2.tscn" id="7_jlg3w"]
+[ext_resource type="PackedScene" uid="uid://bsehx3c71dbr5" path="res://scenes/LevelAssets/room_2_holes.tscn" id="8_5mu5u"]
+[ext_resource type="PackedScene" uid="uid://b382sgeckr073" path="res://scenes/LevelAssets/wall_door.tscn" id="8_f3p4x"]
+[ext_resource type="PackedScene" uid="uid://c2x2tjvvp8isj" path="res://scenes/LevelAssets/wall_window.tscn" id="9_4g4y6"]
+[ext_resource type="PackedScene" uid="uid://dxtktnl83bspl" path="res://scenes/LevelAssets/room_3_holes.tscn" id="10_netrn"]
+[ext_resource type="PackedScene" uid="uid://cbn31sp0stj0v" path="res://scenes/LevelAssets/wall_door_closed.tscn" id="11_jatuj"]
 
 [node name="Level_0" type="Node3D"]
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354492, 0)
-material_override = SubResource("StandardMaterial3D_tcskr")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.179287, 0)
+material_override = ExtResource("1_goe4y")
 use_collision = true
 collision_layer = 7
 collision_mask = 7
 size = Vector3(100, 0.25, 100)
 
 [node name="StartingZone" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766301, 2.64563, -24.3566)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8706, 2.64563, -27.3821)
 
 [node name="LevelExit" parent="." instance=ExtResource("2_w0d1o")]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -0.0976982, 0.709847, 3.80935)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.902302, 3.70985, -21.1907)
 
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="Person2" parent="Entities" instance=ExtResource("2_8q6tg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0323422, 0.662368, -4.96577)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0323, 0.662368, -6.96577)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58349, 1.55469, -8.58154)
-material_override = SubResource("StandardMaterial3D_n858t")
-use_collision = true
-size = Vector3(1, 4.10938, 28.2959)
+[node name="Person3" parent="Entities" instance=ExtResource("2_8q6tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0323, 0.662368, 4.03423)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82188, 1.55469, -8.4895)
-material_override = SubResource("StandardMaterial3D_j80jg")
-use_collision = true
-size = Vector3(1, 4.10938, 28.1118)
+[node name="Room-1 HOLE" parent="." instance=ExtResource("5_ueia7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -26)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0246409, 1.55469, 4.86155)
-material_override = SubResource("StandardMaterial3D_usujj")
-use_collision = true
-size = Vector3(12, 4.10938, 1.19824)
+[node name="Corridor 2X4" parent="." instance=ExtResource("6_3w5mb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -19)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245467, 1.65948, -26.0586)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(12, 3.80957, 12)
+[node name="Corridor 2X5" parent="." instance=ExtResource("6_3w5mb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -11)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21231, 0)
-layers = 0
-operation = 2
-size = Vector3(10, 6.46771, 10)
+[node name="Corridor 2X6" parent="." instance=ExtResource("6_3w5mb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -3)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D3"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.696927, 3.61595)
-layers = 0
-operation = 2
-size = Vector3(2.25, 3.16099, 10)
+[node name="Corridor 2X8" parent="." instance=ExtResource("6_3w5mb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 4)
+
+[node name="Fence 2x2" parent="." instance=ExtResource("7_jlg3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -21)
+
+[node name="Fence 2x3" parent="." instance=ExtResource("7_jlg3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -2.99905)
+
+[node name="Room-1 HOLE2" parent="." instance=ExtResource("8_5mu5u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 0, 4)
+
+[node name="Wall Door" parent="." instance=ExtResource("8_f3p4x")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 1, 4)
+
+[node name="Wall Door3" parent="." instance=ExtResource("8_f3p4x")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 1, 4)
+
+[node name="Wall Door4" parent="." instance=ExtResource("8_f3p4x")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 1, 1, 7)
+
+[node name="Wall Window" parent="." instance=ExtResource("9_4g4y6")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 15, 1, 1)
+
+[node name="Room-1 HOLE3" parent="." instance=ExtResource("10_netrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Wall Door2" parent="." instance=ExtResource("11_jatuj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, 4)

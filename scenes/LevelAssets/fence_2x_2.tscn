@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://l7r5v8ktcq1i"]
+
+[ext_resource type="ArrayMesh" uid="uid://bnbgr8lx27meq" path="res://assets/meshs/level_assets_Cube_004.res" id="1_n0rli"]
+
+[node name="Fence 2x2" type="Node3D"]
+
+[node name="LevelAssetsCube004" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+mesh = ExtResource("1_n0rli")
+
+[node name="LevelAssetsCube005" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08925, 1, 0)
+mesh = ExtResource("1_n0rli")

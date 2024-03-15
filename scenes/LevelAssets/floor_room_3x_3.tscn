@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://jp0bqf7457pq"]
+
+[ext_resource type="ArrayMesh" uid="uid://bjvwaml5374v7" path="res://assets/meshs/level_assets_Cube.res" id="1_c04h6"]
+
+[node name="Floor-Room-3x3" type="Node3D"]
+
+[node name="LevelAssetsCube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = ExtResource("1_c04h6")
+skeleton = NodePath("")
+
+[node name="LevelAssetsCube10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh = ExtResource("1_c04h6")
+skeleton = NodePath("")
+
+[node name="LevelAssetsCube3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+mesh = ExtResource("1_c04h6")
+skeleton = NodePath("")
+
+[node name="LevelAssetsCube4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = ExtResource("1_c04h6")
+skeleton = NodePath("")
+
+[node name="LevelAssetsCube5" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_c04h6")
+skeleton = NodePath("")
+
+[node name="LevelAssetsCube6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = ExtResource("1_c04h6")
+skeleton = NodePath("")
+
+[node name="LevelAssetsCube7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+mesh = ExtResource("1_c04h6")
+skeleton = NodePath("")
+
+[node name="LevelAssetsCube8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = ExtResource("1_c04h6")
+skeleton = NodePath("")
+
+[node name="LevelAssetsCube9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+mesh = ExtResource("1_c04h6")
+skeleton = NodePath("")
