@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw1744urooox3"]
+
+[ext_resource type="ArrayMesh" uid="uid://3bjn6loys843" path="res://assets/meshs/level_assets_Plane_002.res" id="1_tgecc"]
+[ext_resource type="ArrayMesh" uid="uid://3daki3a1hgw5" path="res://assets/meshs/level_assets_Cube_001.res" id="2_asu3h"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ps6xt"]
+data = PackedVector3Array(0.7232, 0.7232, 0, 1, -0.2218, 0, 0.7232, -0.2218, 0, 0.7232, 0.7232, 0, 1, 1, 0, 1, -0.2218, 0, -0.7232, 0.7232, 0, 1, 1, 0, 0.7232, 0.7232, 0, -0.7232, 0.7232, 0, -1, 1, 0, 1, 1, 0, -0.7232, -0.2218, 0, -1, 1, 0, -0.7232, 0.7232, 0, -0.7232, -0.2218, 0, -1, -0.2218, 0, -1, 1, 0, -0.7232, -0.7232, 0, 0.7232, -0.2218, 0, 0.7232, -0.7232, 0, -0.7232, -0.7232, 0, -0.7232, -0.2218, 0, 0.7232, -0.2218, 0, -0.7232, -0.7232, 0, -1, -0.2218, 0, -0.7232, -0.2218, 0, -0.7232, -0.7232, 0, -1, -1, 0, -1, -0.2218, 0, 0.7232, -0.7232, 0, -1, -1, 0, -0.7232, -0.7232, 0, 0.7232, -0.7232, 0, 1, -1, 0, -1, -1, 0, 0.7232, -0.2218, 0, 1, -1, 0, 0.7232, -0.7232, 0, 0.7232, -0.2218, 0, 1, -0.2218, 0, 1, -1, 0)
+
+[node name="WindowWallWithColumns" type="Node3D"]
+
+[node name="WallDoor" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_tgecc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallDoor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallDoor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ps6xt")
+
+[node name="WallDecorColumn2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = ExtResource("2_asu3h")
+skeleton = NodePath("../..")
+
+[node name="WallDecorColumn3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("2_asu3h")
+skeleton = NodePath("../..")

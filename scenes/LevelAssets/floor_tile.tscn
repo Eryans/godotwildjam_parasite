@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6e2n8mbpqbu4"]
+
+[ext_resource type="ArrayMesh" uid="uid://bjvwaml5374v7" path="res://assets/meshs/level_assets_Cube.res" id="1_uf1r6"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_06abl"]
+points = PackedVector3Array(0.984052, 0.104657, 0.984052, -1.01587, -0.054073, -1.01587, -1.01587, -0.054073, 1.01587, 1.01587, -0.054073, -1.01587, -0.983854, 0.104657, -0.984052, 1.01587, -0.054073, 1.01587, -0.983854, 0.104657, 0.984052, 0.984052, 0.104657, -0.984052)
+
+[node name="FloorTile" type="MeshInstance3D"]
+mesh = ExtResource("1_uf1r6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_06abl")

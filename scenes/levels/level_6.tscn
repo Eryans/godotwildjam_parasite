@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv5bjml71tcdi"]
+[gd_scene load_steps=15 format=3 uid="uid://cv5bjml71tcdi"]
 
 [ext_resource type="Texture2D" uid="uid://bcgxfxy4iydl0" path="res://assets/Floor_1m x 1m.png" id="1_q8cy2"]
 [ext_resource type="PackedScene" uid="uid://57x4lgy73f4b" path="res://scenes/objects/LevelExit.tscn" id="2_dya3j"]
@@ -7,15 +7,27 @@
 [ext_resource type="PackedScene" uid="uid://bv7ibrnkch1uu" path="res://scenes/objects/EventTriggerer.tscn" id="5_hq06n"]
 [ext_resource type="PackedScene" uid="uid://bqu1xlejleyse" path="res://scenes/objects/DeadZone.tscn" id="6_p4v75"]
 [ext_resource type="Texture2D" uid="uid://bpmoof656sryl" path="res://assets/Wall_1m x 1m.png" id="7_7x8pb"]
+[ext_resource type="Script" path="res://scenes/levels/person_path.gd" id="7_syfsj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcskr"]
 albedo_texture = ExtResource("1_q8cy2")
+
+[sub_resource type="Curve3D" id="Curve3D_8781r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -11.4552, -3.38554e-05, -0.49976, 0, 0, 0, 0, 0, 0, -11.4002, -3.38554e-05, -4.40452, -1.81664, 0.158322, -0.458504, 1.81664, -0.158322, 0.458504, 3.64468, 0.0909985, -4.79247, 0, 0, 0, 0, 0, 0, 3.06396, -3.38554e-05, 18.4741, 0, 0, 0, 0, 0, 0, -0.180849, -3.38554e-05, 17.9241, 1.40935, 0.174938, 1.32439, -1.40935, -0.174938, -1.32439, -1.17079, -3.38554e-05, -0.389767, 0, 0, 0, 0, 0, 0, -11.4552, -3.38554e-05, -0.49976),
+"tilts": PackedFloat32Array(0, 0, -2.87409, 0, 0, 0, 0)
+}
+point_count = 7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n858t"]
 albedo_texture = ExtResource("7_7x8pb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j80jg"]
 albedo_texture = ExtResource("7_7x8pb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7l37"]
+transparency = 1
+albedo_color = Color(0.65098, 1, 1, 0.588235)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usujj"]
 albedo_texture = ExtResource("7_7x8pb")
@@ -38,9 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0421821, 2.64563, -26.7012)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.73, 0.709847, -26.0296)
 
 [node name="Entities" type="Node3D" parent="."]
-
-[node name="Person2" parent="Entities" instance=ExtResource("3_7cf4c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5255, 0.662368, -36.7357)
 
 [node name="Person3" parent="Entities" instance=ExtResource("3_7cf4c")]
 transform = Transform3D(0.018674, 0, -0.999826, 0, 1, 0, 0.999826, 0, 0.018674, 11.5215, 0.662368, -15.2923)
@@ -65,6 +74,21 @@ event_items = [NodePath("../Door2"), NodePath("../DeadZone")]
 transform = Transform3D(1.00181, 0, 0, 0, 1.00181, 0, 0, 0, 1.00181, 0, 0, -15.1086)
 is_active = true
 size = Vector3(11, 0.25, 5)
+
+[node name="Path3D" type="Path3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.297, 0.723056, -34.4931)
+curve = SubResource("Curve3D_8781r")
+
+[node name="PersonPath" type="PathFollow3D" parent="Objects/Path3D"]
+transform = Transform3D(0.577767, 0.811682, -0.0856429, -0.81463, 0.579947, 0.000512611, 0.0500836, 0.0694733, 0.996319, 3.6129, -0.0115393, 12.6065)
+progress = 36.552
+rotation_mode = 1
+use_model_front = true
+script = ExtResource("7_syfsj")
+progress_ration_speed = 0.1
+
+[node name="Person2" parent="Objects/Path3D/PersonPath" instance=ExtResource("3_7cf4c")]
+transform = Transform3D(0.013411, 0, 0.99991, 0, 1, 0, -0.99991, 0, 0.013411, 0, 1.01686, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19851, 1.55469, -10.6385)
@@ -91,12 +115,12 @@ collision_mask = 3
 size = Vector3(1, 4.10938, 3.15714)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.93647, 1.55469, -20.6029)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.7055, 1.55469, -20.6029)
 material_override = SubResource("StandardMaterial3D_n858t")
 use_collision = true
 collision_layer = 3
 collision_mask = 3
-size = Vector3(1, 4.10938, 3.62203)
+size = Vector3(1, 4.10938, 4.08396)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.0878, 1.55469, -20.603)
@@ -115,12 +139,20 @@ collision_mask = 3
 size = Vector3(1, 4.10938, 10.3063)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82188, 1.55469, -10.6263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82188, 1.55469, -5.55848)
 material_override = SubResource("StandardMaterial3D_j80jg")
 use_collision = true
 collision_layer = 3
 collision_mask = 3
-size = Vector3(1, 4.10938, 21.0789)
+size = Vector3(1, 4.10938, 10.9433)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05357, 1.52628, -15.4775)
+material_override = SubResource("StandardMaterial3D_c7l37")
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(0.536621, 4.05255, 10.604)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.652, 1.55469, -25.9359)

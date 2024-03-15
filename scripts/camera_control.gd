@@ -4,7 +4,7 @@ class_name CameraControl
 @export var camera_speed: float = 1
 
 @onready var target: Node3D = null
-@onready var camera: Camera3D = $Camera3D
+@onready var camera: Camera3D = $CameraHolder/Camera3D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +18,9 @@ func _process(delta):
 		global_transform.origin = global_transform.origin.lerp(
 			target.global_transform.origin, camera_speed * delta
 		)
+	var camera_rotation:float = Input.get_axis("rotate_left","rotate_right")
+	if camera_rotation != 0:
+		rotate_y(camera_rotation * delta)
 	pass
 
 

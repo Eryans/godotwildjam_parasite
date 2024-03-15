@@ -28,8 +28,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_enter") && is_gameover:
 		is_gameover = false
 		level_manager.load_level(level_manager.current_level)
-		
-
 
 	if current_host && !is_gameover:
 		if Input.is_action_just_pressed("shoot"):
@@ -48,14 +46,11 @@ func _process(_delta):
 			return
 
 		var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		var direction = Vector3(input_dir.x, 0, input_dir.y).normalized()
-		
-		if direction:
-			current_host.velocity.x = direction.x * SPEED
-			current_host.velocity.z = direction.z * SPEED
-		else:
-			current_host.velocity.x = move_toward(current_host.velocity.x, 0, SPEED)
-			current_host.velocity.z = move_toward(current_host.velocity.z, 0, SPEED)
+		var camera_forward = camera_control.transform.basis.z.normalized()
+		var camera_right = camera_control.transform.basis.x.normalized()
+		var direction = camera_forward * input_dir.y + camera_right * input_dir.x
+		current_host.velocity.x = direction.x * SPEED
+		current_host.velocity.z = direction.z * SPEED
 
 
 func _on_parasite_infect_person(person: Person):

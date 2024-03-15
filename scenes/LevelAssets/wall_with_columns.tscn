@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0mf5h44owyni"]
+
+[ext_resource type="ArrayMesh" uid="uid://bhuqwc2ytd0ub" path="res://assets/meshs/level_assets_Plane.res" id="1_clk7s"]
+[ext_resource type="ArrayMesh" uid="uid://3daki3a1hgw5" path="res://assets/meshs/level_assets_Cube_001.res" id="2_584y8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6oled"]
+size = Vector3(2.1, 2, 0.25)
+
+[node name="WallWithColumns" type="Node3D"]
+
+[node name="Wall2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_clk7s")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2/StaticBody3D"]
+shape = SubResource("BoxShape3D_6oled")
+
+[node name="WallDecorColumn2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = ExtResource("2_584y8")
+skeleton = NodePath("../..")
+
+[node name="WallDecorColumn3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("2_584y8")
+skeleton = NodePath("../..")

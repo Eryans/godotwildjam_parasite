@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://scripts/camera_control.gd" id="2_ogl05"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_n8iri"]
+length = 0.001
 slide_on_slope = true
 
 [sub_resource type="Gradient" id="Gradient_d2ukx"]
@@ -31,24 +32,25 @@ adjustment_color_correction = SubResource("GradientTexture1D_d12yk")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_g6wxm")
-starting_level = 5
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("1_me3d0")
 
 [node name="CameraControl" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_mask = 0
 shape = SubResource("SeparationRayShape3D_n8iri")
-spring_length = 8.0
 script = ExtResource("2_ogl05")
 camera_speed = 4.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraControl"]
+[node name="CameraHolder" type="Node3D" parent="CameraControl"]
+transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraControl/CameraHolder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592488, 14.4075)
 projection = 1
 fov = 113.1
-size = 25.0
+size = 10.0
 near = 0.001
 far = 31.72
 

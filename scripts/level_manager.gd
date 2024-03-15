@@ -22,7 +22,7 @@ func load_level(level_num: int) -> void:
 	var level_to_load: PackedScene = load(level_path)
 	var instance = level_to_load.instantiate()
 	add_child(instance)
-	# instance.global_rotation.y = -45
+	instance.global_rotation.y = -45
 	starting_point = instance.get_node("StartingZone")
 	player_instance = player_to_spawn.instantiate()
 	if instance.has_meta("stronger_start_char") && instance.get_meta("stronger_start_char"):

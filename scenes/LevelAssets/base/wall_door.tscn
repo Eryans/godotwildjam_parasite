@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://770nsgk0kcc8"]
+
+[ext_resource type="ArrayMesh" uid="uid://bym7r72v0phcq" path="res://assets/meshs/level_assets_Plane_001.res" id="1_qebx1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qa36e"]
+data = PackedVector3Array(0.3333, 0.3891, 0, 1, 1, 0, 1, 0.3891, 0, 0.3333, 0.3891, 0, 0.3333, 1, 0, 1, 1, 0, -1, 0.3891, 0, -0.3333, 1, 0, -0.3333, 0.3891, 0, -1, 0.3891, 0, -1, 1, 0, -0.3333, 1, 0, -0.3333, 0.3891, 0, 0.3333, 1, 0, 0.3333, 0.3891, 0, -0.3333, 0.3891, 0, -0.3333, 1, 0, 0.3333, 1, 0, -1, -0.2218, 0, -0.3333, 0.3891, 0, -0.3333, -0.2218, 0, -1, -0.2218, 0, -1, 0.3891, 0, -0.3333, 0.3891, 0, 0.3333, -0.2218, 0, 1, 0.3891, 0, 1, -0.2218, 0, 0.3333, -0.2218, 0, 0.3333, 0.3891, 0, 1, 0.3891, 0, 0.3333, -1, 0, 1, -0.2218, 0, 1, -1, 0, 0.3333, -1, 0, 0.3333, -0.2218, 0, 1, -0.2218, 0, -1, -1, 0, -0.3333, -0.2218, 0, -0.3333, -1, 0, -1, -1, 0, -1, -0.2218, 0, -0.3333, -0.2218, 0)
+
+[node name="WallDoor" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.09428, 0.865056, 20.6818)
+mesh = ExtResource("1_qebx1")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qa36e")
