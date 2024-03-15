@@ -28,7 +28,7 @@ func _ready():
 
 func _process(_delta):
 	if can_jump && Input.is_action_just_pressed("ui_accept"):
-		var parasite_direction = (camera_control.shoot_ray()) - (global_transform.origin)
+		var parasite_direction = (camera_control.shoot_ray() + Vector3.UP *2) - (global_transform.origin)
 		shoot(parasite_direction.normalized())
 		can_jump = false
 
@@ -38,8 +38,7 @@ func _process(_delta):
 		target_rotation += 2 * PI
 
 	mesh_parent_node.rotation.y = lerp_angle(mesh_parent_node.rotation.y, target_rotation, 1)
-
-	if abs(floor(linear_velocity.x)) >= 0 || abs(floor(linear_velocity.z)) >= 0:
+	if linear_velocity.length() > 2:
 		mesh_parent_node.scale.x = lerp(mesh_parent_node.scale.x, .1, _delta * 3)
 	else:
 		mesh_parent_node.scale.x = lerp(mesh_parent_node.scale.x, .325, _delta * 3)

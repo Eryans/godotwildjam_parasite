@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dk2c73oxvnwco"]
+[gd_scene load_steps=17 format=3 uid="uid://dk2c73oxvnwco"]
 
 [ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="1_goe4y"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_8q6tg"]
@@ -16,6 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://c6lrpopl8cvvt" path="res://scenes/LevelAssets/wall_window_big.tscn" id="11_jsu2j"]
 [ext_resource type="PackedScene" uid="uid://dbonx084yubwa" path="res://scenes/LevelAssets/corridor_corner.tscn" id="12_5b317"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpqgk"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+
 [node name="Level_1" type="Node3D"]
 
 [node name="Floor" type="CSGBox3D" parent="."]
@@ -28,7 +34,7 @@ size = Vector3(174.801, 0.25, 144.864)
 
 [node name="Invisble floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.92578, -0.0179549, 22.432)
-material_override = ExtResource("1_goe4y")
+material_override = SubResource("StandardMaterial3D_gpqgk")
 use_collision = true
 collision_layer = 7
 collision_mask = 7

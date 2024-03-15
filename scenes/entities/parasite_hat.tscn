@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://djntld0wgoo36"]
+
+[ext_resource type="ArrayMesh" uid="uid://dbwxwhxm8yubl" path="res://assets/meshs/parasite_Sphere.res" id="1_aa8ne"]
+[ext_resource type="Material" uid="uid://dadq2yu6krf4y" path="res://assets/materials/Material.008.tres" id="2_yivlf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ng2d6"]
+lifetime_randomness = 0.85
+spread = 160.2
+flatness = 0.453
+initial_velocity_max = 6.2
+angular_velocity_min = -230.4
+angular_velocity_max = 249.6
+gravity = Vector3(0, 8, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_puh5q"]
+material = ExtResource("2_yivlf")
+radius = 0.05
+height = 0.1
+
+[node name="parasite" type="MeshInstance3D"]
+transform = Transform3D(0.188781, 0, 0, 0, 0.259119, 0, 0, 0, 0.188781, 0, 0.691412, 0)
+mesh = ExtResource("1_aa8ne")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 10
+lifetime = 2.0
+speed_scale = 0.5
+randomness = 1.0
+visibility_aabb = AABB(-0.507111, 0.00742686, -0.40359, 1.01422, 0.63749, 0.779837)
+process_material = SubResource("ParticleProcessMaterial_ng2d6")
+draw_pass_1 = SubResource("SphereMesh_puh5q")
