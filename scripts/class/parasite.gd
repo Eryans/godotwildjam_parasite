@@ -28,7 +28,7 @@ func _ready():
 func _process(_delta):
 	if can_jump && Input.is_action_just_pressed("ui_accept"):
 		var parasite_direction = (
-			(camera_control.shoot_ray() + Vector3.UP) - (global_transform.origin)
+			(camera_control.shoot_ray()) - (global_transform.origin)
 		)
 		shoot(parasite_direction.normalized())
 		can_jump = false

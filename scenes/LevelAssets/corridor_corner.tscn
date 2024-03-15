@@ -167,3 +167,8 @@ mesh = SubResource("PlaneMesh_5y6jn")
 transform = Transform3D(0.41474, 0, -0.420251, 0, 1, 0, 0.41474, 0, 0.420251, 3.06585, 0.01, 3.95502)
 material_override = ExtResource("6_squh8")
 mesh = SubResource("PlaneMesh_5y6jn")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.41474, 0, -0.420251, 0, 1, 0, 0.41474, 0, 0.420251, -2.14756, 0.01, 9.21191)
+material_override = ExtResource("6_squh8")
+mesh = SubResource("PlaneMesh_5y6jn")

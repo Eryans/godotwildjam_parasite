@@ -50,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592488, 14.4075)
 projection = 1
 fov = 113.1
-size = 10.0
+size = 8.0
 near = 0.001
 far = 31.72
 
