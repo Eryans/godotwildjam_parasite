@@ -5,6 +5,7 @@ class_name Person
 @export var stronger: bool = false
 
 @onready var mesh: MeshInstance3D = $body
+@onready var parasite_mesh = $scientist/Head_002/parasite
 @onready var material: Material = mesh.get_surface_override_material(0)
 @onready var is_dead: bool = false
 @onready var camera_control: CameraControl = get_tree().root.get_node("Main/CameraControl")
@@ -36,8 +37,10 @@ func _physics_process(delta):
 func set_infected() -> void:
 	current_state = person_state.INFECTED
 	material.albedo_color = Color(1, 0, 0)
+	parasite_mesh.visible = true
 
 
 func set_dead_or_stunned() -> void:
 	current_state = person_state.DEAD if !stronger else person_state.STUNNED
 	is_dead = true
+	parasite_mesh.visible = false

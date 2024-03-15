@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxguoygigc1n6"]
+[gd_scene load_steps=11 format=3 uid="uid://dxguoygigc1n6"]
 
 [ext_resource type="Script" path="res://scripts/class/person.gd" id="1_y8ajf"]
 [ext_resource type="Script" path="res://scripts/class/hitbox.gd" id="2_jg7pv"]
 [ext_resource type="PackedScene" uid="uid://32o4jrrpg6j3" path="res://assets/glTF/scientist.glb" id="2_xrnb4"]
+[ext_resource type="ArrayMesh" uid="uid://dbwxwhxm8yubl" path="res://assets/meshs/parasite_Sphere.res" id="3_7v5a1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_niflc"]
 
@@ -31,6 +32,12 @@ shape = SubResource("CapsuleShape3D_niflc")
 
 [node name="Head_002" parent="scientist" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.360377, 0)
+
+[node name="parasite" type="MeshInstance3D" parent="scientist/Head_002" index="0"]
+transform = Transform3D(0.200565, 0, 0, 0, 0.360622, 0, 0, 0, 0.200565, 0, 0.366432, 0.0141964)
+visible = false
+mesh = ExtResource("3_7v5a1")
+skeleton = NodePath("../../..")
 
 [node name="Body_001" parent="scientist" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
