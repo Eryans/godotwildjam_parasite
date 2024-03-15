@@ -10,7 +10,7 @@ var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
 var is_gameover: bool = false
 var parasite: Parasite
 
-const SPEED = 4.0
+const SPEED = 3.5
 
 
 func _ready():

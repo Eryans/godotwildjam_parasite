@@ -26,22 +26,30 @@ collision_layer = 7
 collision_mask = 7
 size = Vector3(174.801, 0.25, 144.864)
 
+[node name="Invisble floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.92578, -0.0179549, 22.432)
+material_override = ExtResource("1_goe4y")
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(174.801, 0.25, 144.864)
+
 [node name="StartingZone" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8706, 2.64563, -27.3821)
 
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="Person2" parent="Entities" instance=ExtResource("2_8q6tg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0323, 0.662368, -6.96577)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0323, 0.662368, -11.0627)
 
 [node name="Person3" parent="Entities" instance=ExtResource("2_8q6tg")]
-transform = Transform3D(0.779458, 0, 0.626454, 0, 1, 0, -0.626454, 0, 0.779458, 15.0323, 0.662368, 4.03423)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0323, 0.662368, 4.03423)
 
 [node name="Person5" parent="Entities" instance=ExtResource("2_8q6tg")]
-transform = Transform3D(-0.326525, 0, -0.945189, 0, 1, 0, 0.945189, 0, -0.326525, -0.738755, 0.662368, 18.1625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.738755, 0.662368, 18.1625)
 
 [node name="Person6" parent="Entities" instance=ExtResource("2_8q6tg")]
-transform = Transform3D(0.206016, 0, 0.978549, 0, 1, 0, -0.978549, 0, 0.206016, 2.68232, 0.662368, 23.1748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68232, 0.662368, 23.1748)
 
 [node name="Room-1 HOLE" parent="." instance=ExtResource("5_ueia7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -26)

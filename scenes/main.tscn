@@ -41,7 +41,7 @@ script = ExtResource("1_me3d0")
 collision_mask = 0
 shape = SubResource("SeparationRayShape3D_n8iri")
 script = ExtResource("2_ogl05")
-camera_speed = 4.0
+camera_speed = 6.0
 
 [node name="CameraHolder" type="Node3D" parent="CameraControl"]
 transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, 0, 0, 0)
