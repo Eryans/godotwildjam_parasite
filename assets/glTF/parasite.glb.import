@@ -30,6 +30,24 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"Material.008": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material.008.tres"
+},
+"Material.009": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material.009.tres"
+},
+"Material.010": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material.010.tres"
+},
+"Material.011": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material.011.tres"
+}
+},
 "meshes": {
 "parasite_Sphere": {
 "generate/lightmap_uv": 0,

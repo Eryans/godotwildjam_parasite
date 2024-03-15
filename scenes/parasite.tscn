@@ -1,16 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1l2j8rcdold1"]
+[gd_scene load_steps=7 format=3 uid="uid://d1l2j8rcdold1"]
 
 [ext_resource type="Script" path="res://scripts/class/parasite.gd" id="1_yk3q1"]
 [ext_resource type="PackedScene" uid="uid://6jj5dlkyypvp" path="res://assets/glTF/parasite.glb" id="2_y7vjk"]
+[ext_resource type="Material" uid="uid://dadq2yu6krf4y" path="res://assets/materials/Material.008.tres" id="3_5s1kg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_abhow"]
 size = Vector3(1, 0.357117, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4sc6x"]
+lifetime_randomness = 0.22
+emission_shape_scale = Vector3(0.25, 0.25, 0.25)
+angle_min = -10.0
+angle_max = 10.0
+spread = 160.2
+flatness = 0.453
+initial_velocity_max = 6.2
+angular_velocity_min = -230.4
+angular_velocity_max = 249.6
+gravity = Vector3(0, 0, -100)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hk132"]
+material = ExtResource("3_5s1kg")
+radius = 0.05
+height = 0.1
 
 [node name="Parasite" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_yk3q1")
 force = 12.5
+parasite_lifespan = null
 parasite_can_infect_countdown = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -18,9 +37,19 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.144539, 0)
 shape = SubResource("BoxShape3D_abhow")
 
 [node name="parasite" parent="." instance=ExtResource("2_y7vjk")]
-transform = Transform3D(0.313394, 0, 0, 0, 0.313394, 0, 0, 0, 0.313394, 0, 0, 0)
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 0, 0, 0)
 
 [node name="Sphere" parent="parasite" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 20
+lifetime = 0.25
+interp_to_end = 0.11
+speed_scale = 0.5
+randomness = 0.41
+visibility_aabb = AABB(-0.507111, 0.00742686, -0.40359, 1.01422, 0.63749, 0.779837)
+process_material = SubResource("ParticleProcessMaterial_4sc6x")
+draw_pass_1 = SubResource("SphereMesh_hk132")
 
 [editable path="parasite"]

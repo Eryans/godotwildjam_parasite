@@ -38,7 +38,7 @@ func _process(_delta):
 			# Make the parasite start a little bit higher for a better shooting angle
 			parasite.global_transform.origin = current_host.global_transform.origin + Vector3.UP
 			var parasite_direction = (
-				(camera_control.shoot_ray() + Vector3.UP) - (parasite.global_transform.origin)
+				(camera_control.shoot_ray() + Vector3(0,.75,0)) - (parasite.global_transform.origin)
 			)
 			parasite.shoot(parasite_direction.normalized())
 			camera_control.target = parasite
