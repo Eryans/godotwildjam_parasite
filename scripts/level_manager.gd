@@ -14,6 +14,7 @@ func _ready():
 
 func load_level(level_num: int) -> void:
 	current_level = level_num
+	PlayerGlobal.player_keys = []
 	var level_path: String = "res://scenes/levels/level_{num}.tscn".format({"num": level_num})
 	for child in get_children():
 		# Empty level first

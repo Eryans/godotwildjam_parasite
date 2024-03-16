@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbxhmlb2bf8rn"]
+[gd_scene load_steps=14 format=3 uid="uid://dbxhmlb2bf8rn"]
 
 [ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="1_6pard"]
 [ext_resource type="PackedScene" uid="uid://w56k87uq533" path="res://scenes/LevelAssets/room_1_hole.tscn" id="2_g2hbq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bsehx3c71dbr5" path="res://scenes/LevelAssets/room_2_holes.tscn" id="6_vg4r7"]
 [ext_resource type="PackedScene" uid="uid://dbonx084yubwa" path="res://scenes/LevelAssets/corridor_corner.tscn" id="7_wnw00"]
 [ext_resource type="PackedScene" uid="uid://c2x2tjvvp8isj" path="res://scenes/LevelAssets/wall_window.tscn" id="8_s436p"]
+[ext_resource type="PackedScene" uid="uid://cgysmosr0w0vb" path="res://scenes/objects/Key.tscn" id="12_xbcys"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mixc1"]
 transparency = 3
@@ -83,3 +84,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13812, -4.89191)
 
 [node name="Wall Door" parent="Room-big-xxl" instance=ExtResource("3_3ekoq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+
+[node name="Key" parent="." instance=ExtResource("12_xbcys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8993, 0.313099, -25.0851)
