@@ -4,6 +4,7 @@ class_name Parasite
 @export var force: float = 15.0
 @export var parasite_lifespan: float = 5
 @export var parasite_can_infect_countdown: float = .1
+@export var parasite_can_jump_countdown: float = 1.5
 @export var parasite_anim_speed: int = 5
 
 @onready var can_jump: bool = true
@@ -12,6 +13,7 @@ class_name Parasite
 @onready var mesh_parent_node: Node3D = $parasite
 @onready var camera_control: CameraControl = get_tree().root.get_node("Main/CameraControl")
 @onready var can_infect_timer: Timer = Timer.new()
+@onready var can_jump_timer: Timer = Timer.new()
 @onready var can_infect: bool = false
 # @onready var GPU_particles: GPUParticles3D = $GPUParticles3D
 
@@ -26,20 +28,16 @@ func _ready():
 	add_child(can_infect_timer)
 	can_infect_timer.connect("timeout", _on_can_infect_timer_timeout)
 	can_infect_timer.start(parasite_can_infect_countdown)
-
+	add_child(can_jump_timer)
+	can_infect_timer.connect("timeout", _on_can_jump_timer_timeout)
+	can_infect_timer.start(parasite_can_jump_countdown)
 	pass
 
 
 func _process(delta):
 	time += delta
-	# GPU_particles.process_material.gravity = Vector3(0, 0, -10 * clamp(linear_velocity.length(), 1, 20))
-	# var sin_value = (sin(time) + 1) / 2  # Transforme le sinus de [-1, 1] à [0, 1]
-	# var normalized_value = 0.25 + sin_value * 0.25  # Étend la plage de [0, 1] à [0.1, 0.35]
-
-	# mesh_parent_node.scale = Vector3(normalized_value,normalized_value,normalized_value)
 
 	if can_jump && Input.is_action_just_pressed("ui_accept"):
-		# var parasite_direction = (camera_control.shoot_ray() + Vector3.UP) - (global_transform.origin)
 		var mouse_vec: Vector3 = camera_control.shoot_ray()
 		var parasite_direction = (Vector3(mouse_vec.x, 1, mouse_vec.z)) - (global_transform.origin)
 		shoot(parasite_direction.normalized())
@@ -81,3 +79,6 @@ func _on_timer_timeout() -> void:
 
 func _on_can_infect_timer_timeout() -> void:
 	can_infect = true
+
+func _on_can_jump_timer_timeout() -> void:
+	can_jump = true
