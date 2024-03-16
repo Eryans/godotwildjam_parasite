@@ -51,5 +51,5 @@ func set_dead_or_stunned() -> void:
 	current_state = person_state.DEAD if !stronger else person_state.STUNNED
 	if current_state == person_state.DEAD:
 		skeleton.physical_bones_start_simulation()
-		# collider.disabled = true
+		collider.disabled = true
 		is_dead = true

@@ -4,26 +4,29 @@
 [ext_resource type="ArrayMesh" uid="uid://3daki3a1hgw5" path="res://assets/meshs/level_assets_Cube_001.res" id="2_7s18y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ijrch"]
-size = Vector3(2.2, 1, 0.2)
+size = Vector3(2.2, 0.912964, 0.2)
 
 [node name="Fence 1" type="Node3D"]
 
-[node name="LevelAssetsCube004" type="MeshInstance3D" parent="."]
+[node name="LevelAssetsCube001" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+mesh = ExtResource("2_7s18y")
+skeleton = NodePath("../LevelAssetsCube004")
+
+[node name="LevelAssetsCube002" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+mesh = ExtResource("2_7s18y")
+skeleton = NodePath("../LevelAssetsCube004")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = ExtResource("1_i5v2x")
-
-[node name="LevelAssetsCube001" type="MeshInstance3D" parent="LevelAssetsCube004"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-mesh = ExtResource("2_7s18y")
-
-[node name="LevelAssetsCube002" type="MeshInstance3D" parent="LevelAssetsCube004"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-mesh = ExtResource("2_7s18y")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="LevelAssetsCube004"]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelAssetsCube004/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.543518, 0)
 shape = SubResource("BoxShape3D_ijrch")
+
+[node name="LevelAssetsCube004" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.902866, 0, 0, 0, 1, 0.0520492, 0.903337, 0)
+mesh = ExtResource("1_i5v2x")
