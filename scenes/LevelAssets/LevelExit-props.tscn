@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://775m45kyanru"]
+
+[ext_resource type="ArrayMesh" uid="uid://ogbl1x6dsf3c" path="res://assets/meshs/level_assets_Plane_021.res" id="2_fyyay"]
+[ext_resource type="ArrayMesh" uid="uid://dwy76ebq6cewk" path="res://assets/meshs/level_assets_Cube_007.res" id="2_idqj6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_haiac"]
+size = Vector3(2, 2.19702, 0.14219)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_755gi"]
+albedo_color = Color(0.811765, 0, 0.160784, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 2.0
+
+[node name="LevelExitProps" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0984029, -0.0268948)
+shape = SubResource("BoxShape3D_haiac")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_fyyay")
+surface_material_override/1 = SubResource("StandardMaterial3D_755gi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-1.39116, 0, 4.12444e-08, 0, 1.13576, 0, -1.21619e-07, 0, -0.471781, 0, -0.213151, -0.0492022)
+mesh = ExtResource("2_idqj6")

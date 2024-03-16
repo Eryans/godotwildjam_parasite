@@ -1,9 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbxhmlb2bf8rn"]
+[gd_scene load_steps=11 format=3 uid="uid://dbxhmlb2bf8rn"]
 
 [ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="1_6pard"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="3_il81x"]
 [ext_resource type="Texture2D" uid="uid://bpmoof656sryl" path="res://assets/Wall_1m x 1m.png" id="4_cbrea"]
 [ext_resource type="PackedScene" uid="uid://57x4lgy73f4b" path="res://scenes/objects/LevelExit.tscn" id="4_iee0w"]
+[ext_resource type="PackedScene" uid="uid://b80fri1suj6dx" path="res://scenes/LevelAssets/room_big_xxl.tscn" id="5_x23mm"]
+[ext_resource type="PackedScene" uid="uid://775m45kyanru" path="res://scenes/LevelAssets/LevelExit-props.tscn" id="6_puen6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mixc1"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n858t"]
 albedo_texture = ExtResource("4_cbrea")
@@ -16,6 +24,14 @@ albedo_texture = ExtResource("4_cbrea")
 
 [node name="Level_0" type="Node3D"]
 
+[node name="Invisble floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.92578, -0.0423907, 22.432)
+material_override = SubResource("StandardMaterial3D_mixc1")
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(174.801, 0.25, 144.864)
+
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354492, 0)
 material_override = ExtResource("1_6pard")
@@ -25,7 +41,7 @@ collision_mask = 7
 size = Vector3(100, 0.25, 100)
 
 [node name="StartingZone" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766301, 2.64563, -24.3566)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7663, 2.64563, -29.3566)
 
 [node name="Entities" type="Node3D" parent="."]
 
@@ -92,3 +108,9 @@ size = Vector3(2.25, 3.16099, 10)
 
 [node name="LevelExit" parent="." instance=ExtResource("4_iee0w")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 11.1535, 0.970644, -30.7482)
+
+[node name="Room-big-xxl" parent="." instance=ExtResource("5_x23mm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -29)
+
+[node name="LevelExitProps" parent="Room-big-xxl" instance=ExtResource("6_puen6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13812, -4.89191)

@@ -27,6 +27,9 @@ collision_layer = 7
 collision_mask = 7
 size = Vector3(100, 0.25, 100)
 
+[node name="Door" parent="." instance=ExtResource("4_a4iic")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, -12)
+
 [node name="StartingZone" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9549, 0.64563, -12.2755)
 

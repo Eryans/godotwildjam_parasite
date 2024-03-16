@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7tns6cjsegmj"]
+
+[ext_resource type="ArrayMesh" uid="uid://bjvwaml5374v7" path="res://assets/meshs/level_assets_Cube.res" id="1_atfau"]
+
+[node name="Floor-Room - 5x2" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="LevelAssetsCube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+mesh = ExtResource("1_atfau")
+
+[node name="LevelAssetsCube3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh = ExtResource("1_atfau")
+
+[node name="LevelAssetsCube4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+mesh = ExtResource("1_atfau")
+
+[node name="LevelAssetsCube5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = ExtResource("1_atfau")
+
+[node name="LevelAssetsCube8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = ExtResource("1_atfau")
+
+[node name="LevelAssetsCube9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+mesh = ExtResource("1_atfau")
+
+[node name="LevelAssetsCube10" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_atfau")
+
+[node name="LevelAssetsCube11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = ExtResource("1_atfau")
+
+[node name="LevelAssetsCube14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+mesh = ExtResource("1_atfau")
+
+[node name="LevelAssetsCube15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+mesh = ExtResource("1_atfau")

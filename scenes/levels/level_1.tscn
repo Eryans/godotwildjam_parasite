@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dk2c73oxvnwco"]
+[gd_scene load_steps=18 format=3 uid="uid://dk2c73oxvnwco"]
 
 [ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="1_goe4y"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="2_8q6tg"]
 [ext_resource type="PackedScene" uid="uid://57x4lgy73f4b" path="res://scenes/objects/LevelExit.tscn" id="2_w0d1o"]
+[ext_resource type="PackedScene" uid="uid://775m45kyanru" path="res://scenes/LevelAssets/LevelExit-props.tscn" id="4_cg0wm"]
 [ext_resource type="PackedScene" uid="uid://w56k87uq533" path="res://scenes/LevelAssets/room_1_hole.tscn" id="5_ueia7"]
 [ext_resource type="PackedScene" uid="uid://banqvl700jv6m" path="res://scenes/LevelAssets/corridor_2x_4.tscn" id="6_3w5mb"]
 [ext_resource type="PackedScene" uid="uid://bto3cd4bklcbu" path="res://scenes/LevelAssets/room_big.tscn" id="6_q8k3e"]
@@ -59,6 +60,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68232, 0.662368, 23.1748)
 
 [node name="Room-1 HOLE" parent="." instance=ExtResource("5_ueia7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -26)
+
+[node name="LevelExitProps" parent="Room-1 HOLE" instance=ExtResource("4_cg0wm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08264, -2.80399)
 
 [node name="Corridor 2X4" parent="." instance=ExtResource("6_3w5mb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -19)
