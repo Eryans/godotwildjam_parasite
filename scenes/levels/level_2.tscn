@@ -31,7 +31,7 @@ material_override = SubResource("StandardMaterial3D_mixc1")
 use_collision = true
 collision_layer = 15
 collision_mask = 15
-size = Vector3(174.801, 0.25, 144.864)
+size = Vector3(174.801, 0.837, 144.864)
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6848, -0.354492, -43.3215)
@@ -105,13 +105,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -29)
 
 [node name="Door" parent="Room-big-xxl" instance=ExtResource("5_c5uay")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.99915, 0, 0)
+use_key = true
 
 [node name="Door2" parent="Room-big-xxl" instance=ExtResource("5_c5uay")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -5, 0, 0)
+use_key = true
 key = 1
 
 [node name="Door3" parent="Room-big-xxl" instance=ExtResource("5_c5uay")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -19, 0, 0)
+use_key = true
 key = 2
 
 [node name="LevelExitProps" parent="Room-big-xxl" instance=ExtResource("6_puen6")]

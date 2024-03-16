@@ -30,6 +30,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if current_state == person_state.STUNNED:
+		state_machine.travel("Stun")
+
 	if current_state == person_state.CLEAN:
 		if velocity.length() > 0:
 			state_machine.travel("walk")

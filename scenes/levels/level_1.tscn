@@ -37,9 +37,9 @@ size = Vector3(174.801, 0.25, 144.864)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.92578, -0.0179549, 22.432)
 material_override = SubResource("StandardMaterial3D_gpqgk")
 use_collision = true
-collision_layer = 7
-collision_mask = 7
-size = Vector3(174.801, 0.25, 144.864)
+collision_layer = 15
+collision_mask = 15
+size = Vector3(174.801, 0.037, 144.864)
 
 [node name="StartingZone" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8706, 2.64563, -27.3821)
