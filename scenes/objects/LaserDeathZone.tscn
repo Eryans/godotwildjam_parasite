@@ -15,6 +15,6 @@ mesh = ExtResource("1_emck5")
 
 [node name="DeadZone" parent="." instance=ExtResource("2_bil0f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-is_active = false
 size = Vector3(1.885, 2, 0.15)
 toggle_on_off = true
+toggle_on_off_duration = 2.0

@@ -41,7 +41,7 @@ func _process(_delta):
 			var parasite_direction = (
 				(Vector3(mouse_vec.x, 1, mouse_vec.z)) - (parasite.global_transform.origin)
 			)
-			parasite.shoot(parasite_direction.normalized())
+			parasite.shoot(Vector3(parasite_direction.normalized().x * 2 ,1,parasite_direction.normalized().z * 2))
 			camera_control.target = parasite
 			current_host.set_dead_or_stunned()
 			current_host = null

@@ -63,7 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -21)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18, 0, -21)
 
 [node name="LevelExit" parent="." instance=ExtResource("2_jbnt6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5188, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.20242, 1.12342, -6)
 
 [node name="Entities" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5188, 0, 0)

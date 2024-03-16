@@ -4,11 +4,9 @@ class_name Person
 @export var current_state: person_state = person_state.CLEAN
 @export var stronger: bool = false
 
-@onready var mesh: MeshInstance3D = $body
 @onready var collider:CollisionShape3D = $CollisionShape3D
 @onready var parasite_mesh = $scientist/metarig/Skeleton3D/Head_002/parasite
 @onready var body_mesh = $scientist/metarig/Skeleton3D/Body_001
-@onready var material: Material = mesh.get_surface_override_material(0)
 @onready var blouse_material: Material = body_mesh.get_surface_override_material(1)
 @onready var is_dead: bool = false
 @onready var camera_control: CameraControl = get_tree().root.get_node("Main/CameraControl")
