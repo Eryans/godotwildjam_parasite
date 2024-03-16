@@ -1,22 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv7ibrnkch1uu"]
+[gd_scene load_steps=6 format=3 uid="uid://bv7ibrnkch1uu"]
 
 [ext_resource type="Script" path="res://scripts/class/event_triggerer.gd" id="1_kwtol"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_p1va4"]
-size = Vector3(2, 2, 2)
+[ext_resource type="ArrayMesh" uid="uid://bv7s57vdivqqg" path="res://assets/meshs/props/props_Cube_011.res" id="2_sh7l0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u26fj"]
 albedo_color = Color(0.419608, 0.419608, 0.419608, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7pbt"]
-albedo_color = Color(0.815686, 0.0823529, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_vu7ha"]
-material = SubResource("StandardMaterial3D_c7pbt")
-height = 0.25
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tktwj"]
-points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5qe1"]
+size = Vector3(1, 1, 0.60022)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4sb8p"]
 height = 0.622534
@@ -33,17 +24,13 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Visual"]
-mesh = SubResource("BoxMesh_p1va4")
+mesh = ExtResource("2_sh7l0")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_u26fj")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visual"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.984935, 0)
-mesh = SubResource("CylinderMesh_vu7ha")
-skeleton = NodePath("../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visual"]
-shape = SubResource("ConvexPolygonShape3D_tktwj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.105774)
+shape = SubResource("BoxShape3D_o5qe1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_4sb8p")

@@ -4,7 +4,10 @@ class_name DeadZone
 
 @export var is_active: bool = false
 @export var size: Vector3 = Vector3(1, .25, 1)
+@export var toggle_on_off: bool = false
+@export var toggle_on_off_duration: float = 2.0
 
+@onready var toggle_on_off_timer: Timer = Timer.new()
 @onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 
@@ -12,7 +15,9 @@ class_name DeadZone
 func _ready() -> void:
 	# EventManager.connect("")
 	connect("body_entered", _on_body_entered)
-
+	add_child(toggle_on_off_timer)
+	toggle_on_off_timer.connect("timeout", _on_toggle_on_off)
+	toggle_on_off_timer.start(toggle_on_off_duration)
 	pass
 
 
@@ -23,7 +28,6 @@ func _process(_delta) -> void:
 
 
 func activate() -> void:
-	print("toggle dead zone")
 	is_active = !is_active
 	if collider:
 		collider.disabled = is_active
@@ -32,8 +36,9 @@ func activate() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	if (
-		(body is Parasite)
-		|| (body is Person && body.current_state == body.person_state.INFECTED) && is_active
-	):
+	if (body is Parasite) || (body is Person && body.current_state == body.person_state.INFECTED):
 		EventManager.parasite_in_dead_zone.emit()
+
+
+func _on_toggle_on_off() -> void:
+	activate()

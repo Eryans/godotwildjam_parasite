@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvfuwdhhq02kp"]
+
+[ext_resource type="ArrayMesh" uid="uid://3daki3a1hgw5" path="res://assets/meshs/level_assets_Cube_001.res" id="1_emck5"]
+[ext_resource type="PackedScene" uid="uid://bqu1xlejleyse" path="res://scenes/objects/DeadZone.tscn" id="2_bil0f"]
+
+[node name="Laser" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+mesh = ExtResource("1_emck5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+mesh = ExtResource("1_emck5")
+
+[node name="DeadZone" parent="." instance=ExtResource("2_bil0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+is_active = false
+size = Vector3(1.885, 2, 0.15)
+toggle_on_off = true

@@ -89,7 +89,7 @@ func _physics_process(delta):
 
 
 func shoot(direction) -> void:
-	if transform.origin.y < 1.4:
+	if transform.origin.y < 1:
 		apply_central_impulse(Vector3.UP * (3 + (2 if floor(linear_velocity.y) == 0 else 0)))
 	apply_central_impulse(direction * force)
 
