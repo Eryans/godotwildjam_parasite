@@ -46,7 +46,7 @@ func _physics_process(delta):
 		if velocity.length() > 0:
 			state_machine.travel("walk_parasite")
 		else :
-			state_machine.travel(idle_anim)
+			state_machine.travel("idle_parasite")
 		parasite_mesh.visible = true
 		var look_at_direction = camera_control.shoot_ray() - global_transform.origin
 		var target_rotation = atan2(look_at_direction.x, look_at_direction.z)
