@@ -29,6 +29,7 @@ func _ready():
 func _physics_process(delta):
 	if (current_state == person_state.DEAD):
 		velocity = Vector3.ZERO
+		global_transform.origin.y = 0
 	if current_state == person_state.INFECTED:
 		parasite_mesh.visible = true
 		var look_at_direction = camera_control.shoot_ray() - global_transform.origin
