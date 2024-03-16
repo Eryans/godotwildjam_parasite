@@ -4,6 +4,7 @@ class_name Parasite
 @export var force: float = 15.0
 @export var parasite_lifespan: float = 5
 @export var parasite_can_infect_countdown: float = .1
+@export var parasite_anim_speed:int = 5
 
 @onready var can_jump: bool = true
 @onready var target: Vector3 = Vector3()
@@ -28,7 +29,11 @@ func _ready():
 
 func _process(_delta):
 	if can_jump && Input.is_action_just_pressed("ui_accept"):
-		var parasite_direction = (camera_control.shoot_ray() + Vector3.UP *2) - (global_transform.origin)
+		# var parasite_direction = (camera_control.shoot_ray() + Vector3.UP) - (global_transform.origin)
+		var mouse_vec: Vector3 = camera_control.shoot_ray()
+		var parasite_direction = (
+			(Vector3(mouse_vec.x, 1, mouse_vec.z)) - (global_transform.origin)
+		)
 		shoot(parasite_direction.normalized())
 		can_jump = false
 
@@ -39,9 +44,9 @@ func _process(_delta):
 
 	mesh_parent_node.rotation.y = lerp_angle(mesh_parent_node.rotation.y, target_rotation, 1)
 	if linear_velocity.length() > 2:
-		mesh_parent_node.scale.x = lerp(mesh_parent_node.scale.x, .1, _delta * 3)
+		mesh_parent_node.scale.x = lerp(mesh_parent_node.scale.x, .1, _delta * parasite_anim_speed)
 	else:
-		mesh_parent_node.scale.x = lerp(mesh_parent_node.scale.x, .325, _delta * 3)
+		mesh_parent_node.scale.x = lerp(mesh_parent_node.scale.x, .325, _delta * parasite_anim_speed)
 
 
 func shoot(direction) -> void:

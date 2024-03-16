@@ -1,12 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbxhmlb2bf8rn"]
+[gd_scene load_steps=8 format=3 uid="uid://dbxhmlb2bf8rn"]
 
-[ext_resource type="Texture2D" uid="uid://bcgxfxy4iydl0" path="res://assets/Floor_1m x 1m.png" id="1_u2thp"]
+[ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="1_6pard"]
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="3_il81x"]
 [ext_resource type="Texture2D" uid="uid://bpmoof656sryl" path="res://assets/Wall_1m x 1m.png" id="4_cbrea"]
 [ext_resource type="PackedScene" uid="uid://57x4lgy73f4b" path="res://scenes/objects/LevelExit.tscn" id="4_iee0w"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcskr"]
-albedo_texture = ExtResource("1_u2thp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n858t"]
 albedo_texture = ExtResource("4_cbrea")
@@ -21,7 +18,7 @@ albedo_texture = ExtResource("4_cbrea")
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354492, 0)
-material_override = SubResource("StandardMaterial3D_tcskr")
+material_override = ExtResource("1_6pard")
 use_collision = true
 collision_layer = 7
 collision_mask = 7
@@ -94,4 +91,4 @@ operation = 2
 size = Vector3(2.25, 3.16099, 10)
 
 [node name="LevelExit" parent="." instance=ExtResource("4_iee0w")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.1535, -0.229494, -30.4409)
+transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 11.1535, 0.970644, -30.7482)

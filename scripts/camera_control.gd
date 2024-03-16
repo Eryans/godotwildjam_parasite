@@ -2,23 +2,35 @@ extends SpringArm3D
 class_name CameraControl
 
 @export var camera_speed: float = 1
+@export var max_distance = 3.0
 
 @onready var target: Node3D = null
 @onready var camera: Camera3D = $CameraHolder/Camera3D
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass  # Replace with function body.
+func _ready() -> void:
+	if target != null:
+		global_transform.origin = target.global_transform.origin
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if target != null:
+		var mouse_camera_offset = -(target.global_transform.origin - shoot_ray())
+		var clamped_offset
+		if target is Person:
+			clamped_offset = mouse_camera_offset.clamp(
+				Vector3(-max_distance, -max_distance, -max_distance),
+				Vector3(max_distance, max_distance, max_distance)
+			)
+		else:
+			clamped_offset = Vector3.ZERO
 		global_transform.origin = global_transform.origin.lerp(
-			target.global_transform.origin, camera_speed * delta
+			target.global_transform.origin + clamped_offset, camera_speed * delta
 		)
-	var camera_rotation:float = Input.get_axis("rotate_left","rotate_right")
+
+	var camera_rotation: float = Input.get_axis("rotate_left", "rotate_right")
 	if camera_rotation != 0:
 		rotate_y(camera_rotation * delta)
 	pass
