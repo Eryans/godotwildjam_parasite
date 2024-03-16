@@ -5,7 +5,8 @@ class_name Person
 @export var stronger: bool = false
 
 @onready var collider: CollisionShape3D = $CollisionShape3D
-@onready var parasite_mesh = $scientist/metarig/Skeleton3D/Head_002/parasite
+@onready var parasite_mesh = $scientist/metarig/Skeleton3D/BoneAttachment3D/parasite
+@onready var head: MeshInstance3D = $scientist/metarig/Skeleton3D/Head_002
 @onready var body_mesh = $scientist/metarig/Skeleton3D/Body_001
 @onready var blouse_material: Material = body_mesh.get_surface_override_material(1)
 @onready var camera_control: CameraControl = get_tree().root.get_node("Main/CameraControl")
@@ -44,9 +45,11 @@ func _physics_process(delta):
 
 func set_infected() -> void:
 	current_state = person_state.INFECTED
+	head.visible = false
 
 
 func set_dead_or_stunned(force_death = false) -> void:
+	head.visible = true
 	current_state = person_state.DEAD if !stronger else person_state.STUNNED
 	if current_state == person_state.DEAD || force_death:
 		skeleton.physical_bones_start_simulation()
