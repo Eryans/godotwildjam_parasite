@@ -2,7 +2,7 @@
 extends EventItem
 class_name DeadZone
 
-@export var is_active: bool = false
+@export var is_active: bool = true
 @export var size: Vector3 = Vector3(1, .25, 1)
 @export var toggle_on_off: bool = false
 @export var toggle_on_off_duration: float = 2.0
@@ -15,9 +15,10 @@ class_name DeadZone
 func _ready() -> void:
 	# EventManager.connect("")
 	connect("body_entered", _on_body_entered)
-	add_child(toggle_on_off_timer)
-	toggle_on_off_timer.connect("timeout", _on_toggle_on_off)
-	toggle_on_off_timer.start(toggle_on_off_duration)
+	if toggle_on_off:
+		add_child(toggle_on_off_timer)
+		toggle_on_off_timer.connect("timeout", _on_toggle_on_off)
+		toggle_on_off_timer.start(toggle_on_off_duration)
 	pass
 
 
@@ -28,11 +29,12 @@ func _process(_delta) -> void:
 
 
 func activate() -> void:
-	is_active = !is_active
-	if collider:
-		collider.disabled = is_active
-	if mesh:
-		mesh.visible = !is_active
+	if !Engine.is_editor_hint():
+		is_active = !is_active
+		if collider:
+			collider.disabled = !is_active
+		if mesh:
+			mesh.visible = is_active
 
 
 func _on_body_entered(body: Node3D) -> void:

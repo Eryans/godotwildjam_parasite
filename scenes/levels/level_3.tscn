@@ -48,7 +48,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0,
 use_key = true
 
 [node name="StartingZone" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9549, 0.64563, -12.2755)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8478, 0.64563, -14.0198)
 
 [node name="Fence 1" parent="." instance=ExtResource("14_83ctf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -15)
@@ -119,6 +119,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -6)
 
 [node name="Laser" parent="." instance=ExtResource("12_y8d8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -15)
+
+[node name="Laser3" parent="." instance=ExtResource("12_y8d8s")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13, 0.124664, 12)
+
+[node name="Laser4" parent="." instance=ExtResource("12_y8d8s")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13, 0.124664, 10)
 
 [node name="Laser2" parent="." instance=ExtResource("12_y8d8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -21)

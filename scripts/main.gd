@@ -5,6 +5,7 @@ extends Node3D
 
 @onready var camera_control: CameraControl = $CameraControl
 @onready var level_manager: LevelManager = $LevelManager
+@onready var gameover_overlay: BoxContainer = $Control/BoxContainerGameover
 
 var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
 var is_gameover: bool = false
@@ -28,6 +29,7 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_enter") && is_gameover:
 		is_gameover = false
+		gameover_overlay.visible = false
 		level_manager.load_level(level_manager.current_level)
 
 	if current_host && !is_gameover:
@@ -41,7 +43,11 @@ func _process(_delta):
 			var parasite_direction = (
 				(Vector3(mouse_vec.x, 1, mouse_vec.z)) - (parasite.global_transform.origin)
 			)
-			parasite.shoot(Vector3(parasite_direction.normalized().x * 2 ,1,parasite_direction.normalized().z * 2))
+			parasite.shoot(
+				Vector3(
+					parasite_direction.normalized().x * 2, 1, parasite_direction.normalized().z * 2
+				)
+			)
 			camera_control.target = parasite
 			current_host.set_dead_or_stunned()
 			current_host = null
@@ -77,6 +83,7 @@ func _on_parasite_enter_deadzone() -> void:
 
 
 func gameover() -> void:
+	gameover_overlay.visible = true
 	is_gameover = true
 	if parasite != null:
 		parasite.queue_free()
