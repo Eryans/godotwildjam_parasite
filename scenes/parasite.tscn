@@ -17,7 +17,7 @@ flatness = 0.453
 initial_velocity_max = 6.2
 angular_velocity_min = -230.4
 angular_velocity_max = 249.6
-gravity = Vector3(0, 0, -100)
+gravity = Vector3(0, 50, -10)
 
 [sub_resource type="SphereMesh" id="SphereMesh_hk132"]
 material = ExtResource("3_5s1kg")
@@ -30,9 +30,7 @@ collision_mask = 2
 lock_rotation = true
 script = ExtResource("1_yk3q1")
 force = 12.5
-parasite_lifespan = null
 parasite_can_infect_countdown = 0.05
-parasite_anim_speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.144539, 0)
