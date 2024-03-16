@@ -64,7 +64,7 @@ void fragment() {
 color_ramp = SubResource("Gradient_8sp6w")
 noise = SubResource("FastNoiseLite_id42j")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xbt2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbaq0"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_ygibm")
@@ -83,7 +83,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/texture_albedo = SubResource("NoiseTexture2D_dogma")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dlc33"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_hc5r0"]
 resource_local_to_scene = true
 size = Vector3(1, 0.25, 1)
 
@@ -95,8 +95,8 @@ toggle_on_off_duration = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_r8ope")
-surface_material_override/0 = SubResource("ShaderMaterial_0xbt2")
+surface_material_override/0 = SubResource("ShaderMaterial_jbaq0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_dlc33")
+shape = SubResource("BoxShape3D_hc5r0")
 disabled = true

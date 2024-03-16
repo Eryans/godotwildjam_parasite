@@ -4,18 +4,17 @@ class_name Person
 @export var current_state: person_state = person_state.CLEAN
 @export var stronger: bool = false
 
-@onready var collider:CollisionShape3D = $CollisionShape3D
+@onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var parasite_mesh = $scientist/metarig/Skeleton3D/Head_002/parasite
 @onready var body_mesh = $scientist/metarig/Skeleton3D/Body_001
 @onready var blouse_material: Material = body_mesh.get_surface_override_material(1)
-@onready var is_dead: bool = false
 @onready var camera_control: CameraControl = get_tree().root.get_node("Main/CameraControl")
 @onready var skeleton: Skeleton3D = $scientist/metarig/Skeleton3D
-
 
 enum person_state { DEAD, CLEAN, INFECTED, STUNNED }
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 
 func _ready():
 	if stronger:
@@ -25,7 +24,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if (current_state == person_state.DEAD):
+	if current_state == person_state.DEAD:
 		velocity = Vector3.ZERO
 		global_transform.origin.y = 0
 	if current_state == person_state.INFECTED:
@@ -47,10 +46,8 @@ func set_infected() -> void:
 	current_state = person_state.INFECTED
 
 
-func set_dead_or_stunned() -> void:
-	print("lol")
+func set_dead_or_stunned(force_death = false) -> void:
 	current_state = person_state.DEAD if !stronger else person_state.STUNNED
-	if current_state == person_state.DEAD:
+	if current_state == person_state.DEAD || force_death:
 		skeleton.physical_bones_start_simulation()
 		collider.disabled = true
-		is_dead = true

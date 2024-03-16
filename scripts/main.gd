@@ -85,6 +85,11 @@ func _on_parasite_enter_deadzone() -> void:
 func gameover() -> void:
 	gameover_overlay.visible = true
 	is_gameover = true
+	camera_control.target = null
+	if current_host != null:
+		current_host.current_state = current_host.person_state.DEAD
+		current_host.set_dead_or_stunned(true)
+		current_host = null
 	if parasite != null:
 		parasite.queue_free()
 	# current_host.current_state = current_host.person_state.DEAD
