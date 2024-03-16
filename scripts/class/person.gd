@@ -14,6 +14,7 @@ class_name Person
 @onready var skeleton: Skeleton3D = $scientist/metarig/Skeleton3D
 @onready var random_idle: String = get_random_idle_anim()
 @onready var state_machine = animation_tree.get("parameters/playback")
+@onready var idle_anim = get_random_idle_anim()
 
 enum person_state { DEAD, CLEAN, INFECTED, STUNNED }
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -21,7 +22,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 func _ready():
-	print(state_machine)
+	print(idle_anim)
 	if stronger:
 		blouse_material.albedo_color = Color(1, 0, 0)
 	else:
@@ -32,6 +33,9 @@ func _physics_process(delta):
 	if current_state == person_state.CLEAN:
 		if velocity.length() > 0:
 			state_machine.travel("walk")
+		else :
+			state_machine.travel(idle_anim)
+
 	if current_state == person_state.DEAD:
 		velocity = Vector3.ZERO
 		global_transform.origin.y = 0
@@ -39,7 +43,7 @@ func _physics_process(delta):
 		if velocity.length() > 0:
 			state_machine.travel("walk_parasite")
 		else :
-			state_machine.travel(get_random_idle_anim())
+			state_machine.travel(idle_anim)
 		parasite_mesh.visible = true
 		var look_at_direction = camera_control.shoot_ray() - global_transform.origin
 		var target_rotation = atan2(look_at_direction.x, look_at_direction.z)
@@ -70,12 +74,13 @@ func set_dead_or_stunned(force_death = false) -> void:
 
 func get_random_idle_anim() -> String:
 	var rng = RandomNumberGenerator.new()
-	var rdm_idle_anim_num = rng.randf_range(0, 2)
-	match rdm_idle_anim_num:
-		0:
-			return "Idle_001"
+	var rdm_idle_anim_num = int(ceil(rng.randf_range(0, 3)))
+	match (rdm_idle_anim_num):
 		1:
-			return "Idle_2"
+			return "Idle_001"
 		2:
+			return "Idle_2"
+		3:
 			return "Idle_3"
-	return "Idle_001"
+		_:
+			return "Idle_001"

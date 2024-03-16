@@ -49,7 +49,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0,
 use_key = true
 
 [node name="StartingZone" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.296, 0.64563, -14.0698)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8423, 0.64563, -14.0698)
 
 [node name="Fence 1" parent="." instance=ExtResource("14_83ctf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -15)
