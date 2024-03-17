@@ -9,3 +9,5 @@ signal parasite_in_dead_zone
 
 signal open_dialog_box(text: String, portrait: CompressedTexture2D, char_name:String)
 signal close_dialog_box
+
+signal load_selected_level(level:int)

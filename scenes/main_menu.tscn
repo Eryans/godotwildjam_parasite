@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc5x8kvsy8nb8"]
+[gd_scene load_steps=4 format=3 uid="uid://cc5x8kvsy8nb8"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_i6nym"]
 [ext_resource type="Theme" uid="uid://dut81vcddbg7n" path="res://assets/materials/ui_theme.tres" id="2_at3dy"]
+[ext_resource type="Script" path="res://scripts/class/level_button.gd" id="3_ld11s"]
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_i6nym")
@@ -29,4 +30,61 @@ layout_mode = 2
 layout_mode = 2
 text = "PLAY"
 
+[node name="Button2" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load Level"
+
+[node name="QuitButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="LevelContainer" type="PanelContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 376.0
+offset_top = 34.0
+offset_right = 650.0
+offset_bottom = 334.0
+theme = ExtResource("2_at3dy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/LevelContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/LevelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level 0"
+script = ExtResource("3_ld11s")
+
+[node name="Button2" type="Button" parent="Control/LevelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level 0"
+script = ExtResource("3_ld11s")
+level = 1
+
+[node name="Button3" type="Button" parent="Control/LevelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level 0"
+script = ExtResource("3_ld11s")
+level = 2
+
+[node name="Button4" type="Button" parent="Control/LevelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level 0"
+script = ExtResource("3_ld11s")
+level = 3
+
+[node name="Button5" type="Button" parent="Control/LevelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level 0"
+script = ExtResource("3_ld11s")
+level = 4
+
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Button2" to="." method="_on_button_load_level_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/LevelContainer/VBoxContainer/Button" to="Control/LevelContainer/VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="Control/LevelContainer/VBoxContainer/Button2" to="Control/LevelContainer/VBoxContainer/Button2" method="_on_pressed"]
+[connection signal="pressed" from="Control/LevelContainer/VBoxContainer/Button3" to="Control/LevelContainer/VBoxContainer/Button3" method="_on_pressed"]
+[connection signal="pressed" from="Control/LevelContainer/VBoxContainer/Button4" to="Control/LevelContainer/VBoxContainer/Button4" method="_on_pressed"]
+[connection signal="pressed" from="Control/LevelContainer/VBoxContainer/Button5" to="Control/LevelContainer/VBoxContainer/Button5" method="_on_pressed"]

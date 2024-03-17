@@ -81,7 +81,7 @@ func _physics_process(delta):
 		apply_central_impulse(
 			Vector3(
 				direction.normalized().x * final_speed,
-				linear_velocity.y,
+				global_transform.origin.y,
 				direction.normalized().z * final_speed
 			)
 		)
