@@ -10,8 +10,8 @@ class_name Person
 @onready var head: MeshInstance3D = $scientist/metarig/Skeleton3D/Head_002
 @onready var body_mesh = $scientist/metarig/Skeleton3D/Body_001
 @onready var blouse_material: Material = body_mesh.get_surface_override_material(1)
-@onready var camera_control: CameraControl = get_tree().root.get_node("Main/CameraControl")
 @onready var skeleton: Skeleton3D = $scientist/metarig/Skeleton3D
+@onready var camera_control: CameraControl = get_tree().root.get_node("Main/CameraControl")
 @onready var random_idle: String = get_random_idle_anim()
 @onready var state_machine = animation_tree.get("parameters/playback")
 @onready var idle_anim = get_random_idle_anim()
@@ -50,12 +50,10 @@ func _physics_process(delta):
 		else :
 			state_machine.travel("idle_parasite")
 		parasite_mesh.visible = true
-		var look_at_direction = camera_control.shoot_ray() - global_transform.origin
+		var look_at_direction = (camera_control.shoot_ray() - skeleton.global_transform.origin)
 		var target_rotation = atan2(look_at_direction.x, look_at_direction.z)
-		if target_rotation < 0:
-			target_rotation += 2 * PI
 
-		rotation.y = lerp_angle(rotation.y, target_rotation, 1)
+		skeleton.global_rotation.y = lerp_angle(rotation.y, target_rotation, 1)
 	else:
 		parasite_mesh.visible = false
 
