@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb71nmtuewypn"]
+
+[ext_resource type="ArrayMesh" uid="uid://or470ed75ydp" path="res://assets/meshs/level_assets_Plane_007.res" id="1_d7v8p"]
+
+[node name="Corridor- floor 3x1" type="Node3D"]
+
+[node name="LevelAssetsPlane007" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+mesh = ExtResource("1_d7v8p")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsPlane008" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+mesh = ExtResource("1_d7v8p")
+skeleton = NodePath("../..")
+
+[node name="LevelAssetsPlane009" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+mesh = ExtResource("1_d7v8p")
+skeleton = NodePath("../..")

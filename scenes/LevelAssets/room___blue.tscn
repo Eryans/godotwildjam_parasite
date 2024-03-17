@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwr2mj58wbfda"]
+
+[ext_resource type="PackedScene" uid="uid://jp0bqf7457pq" path="res://scenes/LevelAssets/floor_room_3x_3.tscn" id="1_pvlos"]
+[ext_resource type="PackedScene" uid="uid://cb71nmtuewypn" path="res://scenes/LevelAssets/corridor__floor_3x_1.tscn" id="2_m7758"]
+[ext_resource type="PackedScene" uid="uid://cc0yvurq43bsi" path="res://scenes/LevelAssets/corridor___floor_5x_1.tscn" id="3_oogls"]
+[ext_resource type="PackedScene" uid="uid://7v0duodoauvw" path="res://scenes/LevelAssets/wall__blue_5x.tscn" id="4_u28k2"]
+[ext_resource type="PackedScene" uid="uid://2bfmfark3ejc" path="res://scenes/LevelAssets/wall__blue_5x___hole.tscn" id="5_n0dmc"]
+
+[node name="Room - Blue" type="Node3D"]
+
+[node name="Floor-Room-3x3" parent="." instance=ExtResource("1_pvlos")]
+
+[node name="Corridor- floor 3x1" parent="." instance=ExtResource("2_m7758")]
+
+[node name="Corridor- floor 3x2" parent="." instance=ExtResource("2_m7758")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Corridor - floor 5x1" parent="." instance=ExtResource("3_oogls")]
+
+[node name="Corridor - floor 5x2" parent="." instance=ExtResource("3_oogls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="Wall- Blue 5x" parent="." instance=ExtResource("4_u28k2")]
+
+[node name="Wall- Blue 5x - hole" parent="." instance=ExtResource("5_n0dmc")]
+
+[node name="Wall- Blue 5x - hole2" parent="." instance=ExtResource("5_n0dmc")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+
+[node name="Wall- Blue 5x - hole3" parent="." instance=ExtResource("5_n0dmc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

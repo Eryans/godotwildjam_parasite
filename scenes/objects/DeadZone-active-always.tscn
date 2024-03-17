@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkeijmoj8ypwp"]
+
+[ext_resource type="PackedScene" uid="uid://bqu1xlejleyse" path="res://scenes/objects/DeadZone.tscn" id="1_u4qbs"]
+
+[node name="DeadZone-active-always" type="Node3D"]
+
+[node name="DeadZone" parent="." instance=ExtResource("1_u4qbs")]
+size = Vector3(2, 0.25, 1)
+toggle_on_off_duration = 0.5
