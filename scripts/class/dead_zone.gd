@@ -13,8 +13,11 @@ class_name DeadZone
 
 
 func _ready() -> void:
-	# EventManager.connect("")
 	connect("body_entered", _on_body_entered)
+	is_active = true
+	mesh.mesh.size = size
+	collider.shape.size = size
+	collider.disabled = false
 	if toggle_on_off:
 		add_child(toggle_on_off_timer)
 		toggle_on_off_timer.connect("timeout", _on_toggle_on_off)
