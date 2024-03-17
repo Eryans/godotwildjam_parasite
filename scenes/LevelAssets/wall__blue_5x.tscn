@@ -3,8 +3,8 @@
 [ext_resource type="ArrayMesh" uid="uid://bjla1hn0uvhs" path="res://assets/meshs/level_assets_Plane_013.res" id="1_ypbre"]
 [ext_resource type="ArrayMesh" uid="uid://bft6m6c1cmsnr" path="res://assets/meshs/level_assets_Plane_009.res" id="2_d2m3c"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b563t"]
-size = Vector3(4.02722, 2.17328, 0.176712)
+[sub_resource type="BoxShape3D" id="BoxShape3D_av1e0"]
+size = Vector3(10, 4, 0.177)
 
 [node name="Wall- Blue 5x" type="Node3D"]
 
@@ -12,8 +12,8 @@ size = Vector3(4.02722, 2.17328, 0.176712)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98999, 0.00796509, -0.0410233)
-shape = SubResource("BoxShape3D_b563t")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98999, 0.921465, -0.0410233)
+shape = SubResource("BoxShape3D_av1e0")
 
 [node name="LevelAssetsPlane015" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -5)

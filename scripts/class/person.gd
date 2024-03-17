@@ -38,7 +38,7 @@ func _physics_process(delta):
 	if current_state == person_state.CLEAN:
 		if velocity.length() > 0:
 			state_machine.travel("walk")
-		else :
+		else:
 			state_machine.travel(idle_anim)
 
 	if current_state == person_state.DEAD:
@@ -47,13 +47,19 @@ func _physics_process(delta):
 	if current_state == person_state.INFECTED:
 		if velocity.length() > 0:
 			state_machine.travel("walk_parasite")
-		else :
+		else:
 			state_machine.travel("idle_parasite")
 		parasite_mesh.visible = true
-		var look_at_direction = (camera_control.shoot_ray() - skeleton.global_transform.origin)
+		var look_at_direction = camera_control.shoot_ray() - skeleton.global_transform.origin
 		var target_rotation = atan2(look_at_direction.x, look_at_direction.z)
 
 		skeleton.global_rotation.y = lerp_angle(rotation.y, target_rotation, 1)
+		for i in range(get_slide_collision_count()):
+			var col = get_slide_collision(i)
+			if col.get_collider() is RigidBody3D:
+				var rb: RigidBody3D = col.get_collider()
+				rb.apply_central_impulse(-col.get_normal() * .3)
+				rb.apply_impulse(-col.get_normal() * .01, col.get_position())
 	else:
 		parasite_mesh.visible = false
 
@@ -78,7 +84,7 @@ func set_dead_or_stunned(force_death = false) -> void:
 func get_random_idle_anim() -> String:
 	var rng = RandomNumberGenerator.new()
 	var rdm_idle_anim_num = int(ceil(rng.randf_range(0, 3)))
-	match (rdm_idle_anim_num):
+	match rdm_idle_anim_num:
 		1:
 			return "Idle_001"
 		2:

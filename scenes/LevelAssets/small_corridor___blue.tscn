@@ -23,6 +23,12 @@ mesh = ExtResource("2_lslwh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelAssetsPlane009/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6ycm4")
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="LevelAssetsPlane009"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelAssetsPlane009/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_6ycm4")
+
 [node name="LevelAssetsPlane010" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 1, 1.12542, 0)
 mesh = ExtResource("2_lslwh")
@@ -30,4 +36,10 @@ mesh = ExtResource("2_lslwh")
 [node name="StaticBody3D" type="StaticBody3D" parent="LevelAssetsPlane010"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelAssetsPlane010/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_6xpen")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="LevelAssetsPlane010"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelAssetsPlane010/StaticBody3D2"]
 shape = SubResource("ConcavePolygonShape3D_6xpen")

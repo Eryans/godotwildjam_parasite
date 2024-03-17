@@ -20,4 +20,12 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelAssetsCube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_yh45w")
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="LevelAssetsCube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelAssetsCube/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_yh45w")
+
 [node name="Floor-Room-3x3" parent="." instance=ExtResource("2_yvvjc")]
