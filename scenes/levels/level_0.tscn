@@ -25,7 +25,7 @@ albedo_color = Color(1, 1, 1, 0)
 [node name="Level_0" type="Node3D"]
 
 [node name="StartingZone" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.10673, 0.878869, 5.05196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8933, 0.878869, -5.94804)
 
 [node name="Invisble floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65572, -0.348528, 4.54036)

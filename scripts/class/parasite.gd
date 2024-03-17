@@ -98,9 +98,9 @@ func infection(person: Person) -> void:
 	if (
 		(
 			person.current_state == person.person_state.CLEAN
-			|| person.current_state == person.person_state.STUNNED
+			|| (person.current_state == person.person_state.STUNNED && can_infect)
 		)
-		&& can_infect
+		
 	):
 		infect_person.emit(person)
 		queue_free()
