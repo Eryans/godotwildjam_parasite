@@ -45,7 +45,7 @@ func shoot_ray() -> Vector3:
 	var ray_query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
 	ray_query.from = from
 	ray_query.to = to
-	ray_query.collision_mask = 3
+	ray_query.collision_mask = 4
 	var result: Dictionary = space.intersect_ray(ray_query)
 	if result.has("position"):
 		return result.position

@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1l2j8rcdold1"]
+[gd_scene load_steps=9 format=3 uid="uid://d1l2j8rcdold1"]
 
 [ext_resource type="Script" path="res://scripts/class/parasite.gd" id="1_yk3q1"]
 [ext_resource type="PackedScene" uid="uid://6jj5dlkyypvp" path="res://assets/glTF/parasite.glb" id="2_y7vjk"]
 [ext_resource type="Material" uid="uid://dadq2yu6krf4y" path="res://assets/materials/Material.008.tres" id="3_5s1kg"]
+[ext_resource type="AudioStream" uid="uid://bogn6wary805b" path="res://assets/sound_effect/parasite_move_sfx.wav" id="4_fd0rk"]
+[ext_resource type="AudioStream" uid="uid://0a2vg8njdnt3" path="res://assets/sound_effect/jump.wav" id="5_sdaxi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1hcru"]
 radius = 0.311559
@@ -34,6 +36,8 @@ force = 2.0
 parasite_lifespan = 20.0
 parasite_can_infect_countdown = 0.015
 parasite_can_jump_countdown = 0.75
+can_direction_impulse_countdown = null
+parasite_anim_speed = null
 speed = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -55,5 +59,15 @@ randomness = 0.41
 visibility_aabb = AABB(-0.507111, 0.00742686, -0.40359, 1.01422, 0.63749, 0.779837)
 process_material = SubResource("ParticleProcessMaterial_4sc6x")
 draw_pass_1 = SubResource("SphereMesh_hk132")
+
+[node name="MoveSFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_fd0rk")
+volume_db = 2.0
+pitch_scale = 1.5
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_sdaxi")
 
 [editable path="parasite"]

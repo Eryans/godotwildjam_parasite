@@ -126,6 +126,10 @@ Try to sneeze yourself out of your temporary human !
 Aim with your mouse and press \"space\", the farther the mouse, the farther you go ! 
 Now jump and make me proud little one !"
 
+[node name="DialogArea8" parent="." instance=ExtResource("13_8m3al")]
+transform = Transform3D(1.80057, 0, 0, 0, 1.80057, 0, 0, 0, 1.80057, -6, 0.193993, 4.73996)
+text = "If you have trouble to see where to go, press Q or E to rotate your camera"
+
 [node name="DialogArea5" parent="." instance=ExtResource("13_8m3al")]
 transform = Transform3D(1.57801, 0, 0, 0, 1.57801, 0, 0, 0, 1.57801, 8.02619, 0.193993, 4.44892)
 text = "Hmmm i think its a very primitive form of transport use by the peoples of earth to go up and down.

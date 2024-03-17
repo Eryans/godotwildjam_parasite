@@ -85,6 +85,10 @@ rotate_right={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_3="floor"
+
 [physics]
 
 3d/physics_engine="JoltPhysics3D"

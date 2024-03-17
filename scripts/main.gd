@@ -39,6 +39,7 @@ func _process(_delta):
 
 	if current_host && !is_gameover:
 		if Input.is_action_just_pressed("shoot"):
+			current_host.sneeze_sfx.play()
 			parasite = parasite_scn.instantiate()
 			parasite.connect("infect_person", _on_parasite_infect_person)
 			add_child(parasite)

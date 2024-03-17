@@ -20,6 +20,8 @@ class_name Parasite
 @onready var can_direction_impulse_timer: Timer = Timer.new()
 @onready var can_infect: bool = false
 @onready var can_direction_impulse: bool = true
+@onready var move_sfx = %MoveSFX
+@onready var jump_sfx = %JumpSFX
 # @onready var GPU_particles: GPUParticles3D = $GPUParticles3D
 
 signal infect_person(person: Person)
@@ -45,10 +47,14 @@ func _ready():
 
 func _physics_process(delta):
 	time += delta
+	var rng = RandomNumberGenerator.new()
 	if can_jump && Input.is_action_just_pressed("ui_accept"):
 		var mouse_vec: Vector3 = camera_control.shoot_ray()
 		var parasite_direction = (Vector3(mouse_vec.x, 1, mouse_vec.z)) - (global_transform.origin)
 		shoot(parasite_direction.normalized())
+		var rdm_pitch = rng.randf_range(0.5, 1)
+		jump_sfx.pitch_scale = rdm_pitch
+		jump_sfx.play()
 		can_jump = false
 
 	var look_at_direction = camera_control.shoot_ray() - global_transform.origin
@@ -85,6 +91,9 @@ func _physics_process(delta):
 				direction.normalized().z * final_speed
 			)
 		)
+		var rdm_pitch = rng.randf_range(0, 1.5)
+		move_sfx.pitch_scale = rdm_pitch
+		move_sfx.play()
 		can_direction_impulse = false
 
 

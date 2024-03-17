@@ -15,6 +15,10 @@ class_name Person
 @onready var random_idle: String = get_random_idle_anim()
 @onready var state_machine = animation_tree.get("parameters/playback")
 @onready var idle_anim = get_random_idle_anim()
+@onready var hurt_sfx = %Hurt
+@onready var stunned_sfx = %Stunned
+@onready var death_sfx = %Death
+@onready var sneeze_sfx = %Sneeze
 
 enum person_state { DEAD, CLEAN, INFECTED, STUNNED }
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -69,16 +73,26 @@ func _physics_process(delta):
 
 
 func set_infected() -> void:
+	var rng = RandomNumberGenerator.new()
+	hurt_sfx.pitch_scale = rng.randf_range(.5, 1.25)
+	hurt_sfx.play()
 	current_state = person_state.INFECTED
 	head.visible = false
 
 
 func set_dead_or_stunned(force_death = false) -> void:
+	var rng = RandomNumberGenerator.new()
+	var rdm_pitch = rng.randf_range(.5, 1.25)
 	head.visible = true
 	current_state = person_state.DEAD if !stronger else person_state.STUNNED
 	if current_state == person_state.DEAD || force_death:
+		death_sfx.pitch_scale = rdm_pitch
+		death_sfx.play()
 		skeleton.physical_bones_start_simulation()
 		collider.disabled = true
+	else:
+		stunned_sfx.pitch_scale = rdm_pitch
+		stunned_sfx.play()
 
 
 func get_random_idle_anim() -> String:
