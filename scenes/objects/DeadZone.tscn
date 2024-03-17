@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/class/dead_zone.gd" id="1_tnc4f"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r8ope"]
-size = Vector3(1.885, 2, 0.15)
+size = Vector3(1, 0.25, 1)
 
 [sub_resource type="Shader" id="Shader_ygibm"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.2.stable's StandardMaterial3D.

@@ -27,6 +27,8 @@ func _ready():
 		blouse_material.albedo_color = Color(1, 0, 0)
 	else:
 		blouse_material.albedo_color = Color(1, 1, 1)
+	if current_state == person_state.INFECTED:
+		head.visible = false
 
 
 func _physics_process(delta):

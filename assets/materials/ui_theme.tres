@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dut81vcddbg7n"]
+
+[ext_resource type="Texture2D" uid="uid://bh3wtx8x5k7f1" path="res://assets/materials/Textures/custom_panel.png" id="1_vbiln"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iu2yi"]
+texture = ExtResource("1_vbiln")
+texture_margin_left = 32.0
+texture_margin_top = 20.0
+texture_margin_right = 32.0
+texture_margin_bottom = 20.0
+
+[resource]
+MarginContainer/constants/margin_bottom = 8
+MarginContainer/constants/margin_left = 8
+MarginContainer/constants/margin_right = 8
+MarginContainer/constants/margin_top = 8
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_iu2yi")

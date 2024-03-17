@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://j2sx8toctbm8"]
+
+[ext_resource type="Script" path="res://scripts/class/dialog_area.gd" id="1_pqw15"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6q4af"]
+height = 0.482515
+radius = 1.00779
+
+[node name="DialogArea" type="Area3D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_pqw15")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_6q4af")

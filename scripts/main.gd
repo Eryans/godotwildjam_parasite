@@ -6,6 +6,8 @@ extends Node3D
 @onready var camera_control: CameraControl = $CameraControl
 @onready var level_manager: LevelManager = $LevelManager
 @onready var gameover_overlay: BoxContainer = $Control/BoxContainerGameover
+@onready var dialog_container: GridContainer = $Control/DialogContainer
+@onready var dialog_label:Label = %DialogLabel
 
 var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
 var is_gameover: bool = false
@@ -18,6 +20,8 @@ func _ready():
 	EventManager.connect("level_change", _on_level_change)
 	EventManager.connect("parasite_died", _on_parasite_died)
 	EventManager.connect("parasite_in_dead_zone", _on_parasite_enter_deadzone)
+	EventManager.connect("open_dialog_box", _on_open_dialog_box)
+	EventManager.connect("close_dialog_box", _on_close_dialog_box)
 	level_manager.load_level(starting_level)
 	current_host = level_manager.get_patient_zero()
 	if current_host:
@@ -96,3 +100,11 @@ func gameover() -> void:
 		parasite.queue_free()
 	# current_host.current_state = current_host.person_state.DEAD
 	print("DEAD X_X")
+
+func _on_open_dialog_box(text:String) -> void:
+	dialog_container.visible = true
+	dialog_label.text = text
+	pass
+	
+func _on_close_dialog_box() -> void:
+	dialog_container.visible = false
