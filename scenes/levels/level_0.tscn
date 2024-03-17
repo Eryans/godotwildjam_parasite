@@ -25,7 +25,7 @@ albedo_color = Color(1, 1, 1, 0)
 [node name="Level_0" type="Node3D"]
 
 [node name="StartingZone" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0298, 0.878869, -5.90562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.10673, 0.878869, 5.05196)
 
 [node name="Invisble floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65572, -0.348528, 4.54036)
@@ -51,7 +51,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.384
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, 5)
 
 [node name="LevelExit" parent="Room-1 HOLE4" instance=ExtResource("4_0pymy")]
-transform = Transform3D(1.31138e-07, 5.29445e-10, 1, 0.0121123, 0.999927, -2.11779e-09, -0.999927, 0.0121123, 1.31122e-07, -2.78912, 1.134, 0)
+transform = Transform3D(1.31138e-07, 5.29445e-10, 1, 0.0121123, 0.999927, -2.11779e-09, -0.999927, 0.0121123, 1.31122e-07, -2.74152, 1.134, 0)
+next_level = 1
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.166788, 0)

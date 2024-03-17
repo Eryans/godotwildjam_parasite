@@ -34,17 +34,14 @@ func load_level(level_num: int) -> void:
 	EventManager.level_change.emit(player_instance)
 
 
-func _on_parasite_entered_exit() -> void:
-	if get_next_level():
-		current_level += 1
-		load_level(current_level)
-	else:
-		print("no more level")
-	pass
+func _on_parasite_entered_exit(level) -> void:
+	current_level = level
+	load_level(current_level)
 
 
 func get_next_level() -> bool:
 	var level_path = "res://scenes/levels/level_{num}.tscn".format({"num": current_level + 1})
+	print(level_path)
 	return FileAccess.file_exists(level_path)
 
 

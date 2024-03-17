@@ -132,6 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0421821, -0.064116, -0.7012
 
 [node name="LevelExit" parent="." instance=ExtResource("2_bhxxk")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -24.8336, 1.12793, -0.0095377)
+next_level = 99
 
 [node name="Entities" type="Node3D" parent="."]
 

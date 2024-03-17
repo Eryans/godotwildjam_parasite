@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="3_bvr0i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_haiac"]
-size = Vector3(2, 2.19702, 0.234021)
+size = Vector3(1.49194, 2.19702, 0.378607)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wf1cr"]
 
@@ -13,7 +13,7 @@ size = Vector3(2, 2.19702, 0.234021)
 script = ExtResource("1_7fl4r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0984029, -0.0751404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0045166, -0.0984029, -0.00284731)
 shape = SubResource("BoxShape3D_haiac")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

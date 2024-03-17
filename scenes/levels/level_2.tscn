@@ -84,6 +84,7 @@ stronger = true
 
 [node name="LevelExit" parent="." instance=ExtResource("4_iee0w")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37.7515, 1.18442, -29.0046)
+next_level = 3
 
 [node name="Room-1 HOLE" parent="." instance=ExtResource("6_vg4r7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -29)
