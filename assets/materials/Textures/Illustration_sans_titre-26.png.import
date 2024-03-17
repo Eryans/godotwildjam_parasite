@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://620x50fjlon3"
-path.s3tc="res://.godot/imported/general_slimy_boi.png-ca9cf00e32c9f53612c09a11d72efc97.s3tc.ctex"
+uid="uid://b71u7c11futqd"
+path.s3tc="res://.godot/imported/Illustration_sans_titre-26.png-aa20554ebaa86fb423dc8015c6c2ed23.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/materials/Textures/general_slimy_boi.png"
-dest_files=["res://.godot/imported/general_slimy_boi.png-ca9cf00e32c9f53612c09a11d72efc97.s3tc.ctex"]
+source_file="res://assets/materials/Textures/Illustration_sans_titre-26.png"
+dest_files=["res://.godot/imported/Illustration_sans_titre-26.png-aa20554ebaa86fb423dc8015c6c2ed23.s3tc.ctex"]
 
 [params]
 

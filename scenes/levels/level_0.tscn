@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dt562jvh3yh8l"]
+[gd_scene load_steps=17 format=3 uid="uid://dt562jvh3yh8l"]
 
 [ext_resource type="PackedScene" uid="uid://dxguoygigc1n6" path="res://scenes/person.tscn" id="1_qs8me"]
 [ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="1_yxmh8"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dbonx084yubwa" path="res://scenes/LevelAssets/corridor_corner.tscn" id="7_me8oo"]
 [ext_resource type="PackedScene" uid="uid://cbn31sp0stj0v" path="res://scenes/LevelAssets/wall_door_closed.tscn" id="12_7ekqt"]
 [ext_resource type="PackedScene" uid="uid://j2sx8toctbm8" path="res://scenes/entities/dialog_area.tscn" id="13_8m3al"]
+[ext_resource type="Texture2D" uid="uid://cfr5o1p6ej8tq" path="res://assets/materials/Textures/scientist_portrait.png" id="14_46j6w"]
+[ext_resource type="Texture2D" uid="uid://c45yvn8wj68ja" path="res://assets/materials/Textures/infected_scientist.png" id="15_vsapa"]
 [ext_resource type="PackedScene" uid="uid://w56k87uq533" path="res://scenes/LevelAssets/room_1_hole.tscn" id="17_fxguc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qpom"]
@@ -65,6 +67,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.34193, 0, 0)
 [node name="Person3" parent="Entities" instance=ExtResource("1_qs8me")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7182, 0.938048, 17.638)
 
+[node name="Person6" parent="Entities" instance=ExtResource("1_qs8me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7182, 0.938048, 11.638)
+
+[node name="Wall Door" parent="Entities/Person6" instance=ExtResource("12_7ekqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.06013, 0.061952, 10.362)
+
 [node name="Person4" parent="Entities" instance=ExtResource("1_qs8me")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2818, 0.938048, 14.0874)
 
@@ -81,7 +89,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0,
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 1, 2.38419e-06)
 
 [node name="Fence 2x2" parent="." instance=ExtResource("4_s3t6v")]
-transform = Transform3D(0.936039, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -14, -5.96046e-08, 12)
+transform = Transform3D(0.936039, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -14, -5.96046e-08, 6)
+
+[node name="Fence 2x3" parent="." instance=ExtResource("4_s3t6v")]
+transform = Transform3D(0.936039, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -14, -5.96046e-08, 16)
 
 [node name="Corridor 2X4" parent="." instance=ExtResource("6_416bx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 2)
@@ -103,13 +114,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
 
 [node name="DialogArea" parent="." instance=ExtResource("13_8m3al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.666946, -5.68662)
-text = "AH ! FINALLY ! You are awake ! And i see you already have find a host ! that's great because you won't survive for long without one !
+text = "AH ! FINALLY ! You are awake ! And i see you already have find a host !
+That's great because you won't survive for long without one !
 Try to move your host a bit with the arrow key or WASD"
 
 [node name="DialogArea3" parent="." instance=ExtResource("13_8m3al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.193993, -2.26004)
 text = "Looks like the only way out is this big window, but we can't make our host jump for some reasons ! 
-Try to sneeze yourself out of your temporary human by pressing the space bar"
+Try to sneeze yourself out of your temporary human !
+Aim with your mouse and press \"space\", the farther the mouse, the farther you go ! 
+Now jump and make me proud little one !"
 
 [node name="DialogArea5" parent="." instance=ExtResource("13_8m3al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.19209, 0.193993, 5.04029)
@@ -121,10 +135,28 @@ transform = Transform3D(1.36176, 0, 0, 0, 1.36176, 0, 0, 0, 1.36176, -10.9551, 0
 text = "Great job once again !
 You might have noticed already but you can dash when in the air by using your arrow or wasd keys."
 
+[node name="DialogArea6" parent="." instance=ExtResource("13_8m3al")]
+transform = Transform3D(2.12689, 0, 0, 0, 2.12689, 0, 0, 0, 2.12689, -5.9551, 0.193993, 18.2802)
+text = "What the...  What is this ? Well i just hope its not dangerous for the human well being ! "
+portrait = ExtResource("14_46j6w")
+char_name = "Robert"
+
+[node name="DialogArea7" parent="." instance=ExtResource("13_8m3al")]
+transform = Transform3D(1.36176, 0, 0, 0, 1.36176, 0, 0, 0, 1.36176, -5.9551, 0.193993, 10.2458)
+text = "... It was... Not. *Bleuuaurg*"
+portrait = ExtResource("15_vsapa")
+infected_only = true
+char_name = "Robert but less alive"
+
 [node name="DialogArea2" parent="." instance=ExtResource("13_8m3al")]
 transform = Transform3D(1.73068, 0, 0, 0, 1.73068, 0, 0, 0, 1.73068, -14, 0.258069, 1.31846)
 text = "Great job ! You make our people proud !
 But you are now vulnerable without a host !
 You can go faster by jumping !
-Aim with your mouse and press \"space\", the farther the mouse, the farther you go ! 
-Now jump and make me proud little one !"
+Now move !"
+
+[node name="Wall Window Big" parent="." instance=ExtResource("5_j8mtr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 1, 19)
+
+[node name="Wall Door" parent="." instance=ExtResource("4_deklu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 8)

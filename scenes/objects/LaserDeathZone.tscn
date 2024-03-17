@@ -115,4 +115,3 @@ surface_material_override/0 = SubResource("ShaderMaterial_tw02l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeadZone"]
 shape = SubResource("BoxShape3D_wi4re")
-disabled = true

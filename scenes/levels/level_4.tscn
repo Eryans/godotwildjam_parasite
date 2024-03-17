@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ci3lvk3p7lr55"]
+[gd_scene load_steps=31 format=3 uid="uid://ci3lvk3p7lr55"]
 
 [ext_resource type="PackedScene" uid="uid://cgysmosr0w0vb" path="res://scenes/objects/Key.tscn" id="1_3uk2e"]
 [ext_resource type="Material" uid="uid://4flpjqsicywy" path="res://assets/materials/deep_black.tres" id="1_8fo3q"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c6lrpopl8cvvt" path="res://scenes/LevelAssets/wall_window_big.tscn" id="15_fxsso"]
 [ext_resource type="PackedScene" uid="uid://cvfuwdhhq02kp" path="res://scenes/objects/LaserDeathZone.tscn" id="18_xdm40"]
 [ext_resource type="PackedScene" uid="uid://byt6knck7i5es" path="res://scenes/LevelAssets/fence_1.tscn" id="19_61mjl"]
+[ext_resource type="Texture2D" uid="uid://b71u7c11futqd" path="res://assets/materials/Textures/Illustration_sans_titre-26.png" id="21_5x15i"]
 [ext_resource type="ArrayMesh" uid="uid://jvv5g22xf0hi" path="res://assets/meshs/level_assets_Cube_002.res" id="22_qpkuo"]
 [ext_resource type="PackedScene" uid="uid://d1xtsdo5nh5bm" path="res://scenes/LevelAssets/wall___blue___2x_1.tscn" id="23_0mjkq"]
 [ext_resource type="PackedScene" uid="uid://l7r5v8ktcq1i" path="res://scenes/LevelAssets/fence_2x_2.tscn" id="24_tjpw7"]
@@ -32,6 +33,12 @@ transparency = 3
 alpha_hash_scale = 1.0
 alpha_antialiasing_mode = 0
 albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s4xyg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kuhq1"]
+albedo_texture = ExtResource("21_5x15i")
+texture_filter = 0
 
 [node name="Level_0" type="Node3D"]
 metadata/stronger_start_char = true
@@ -111,6 +118,15 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 1,
 [node name="Room-big-xxl" parent="Corridor Corner5/Corridor- Small" instance=ExtResource("9_xxko5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -6)
 
+[node name="Fence 1" parent="." instance=ExtResource("19_61mjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 17)
+
+[node name="Fence 2" parent="." instance=ExtResource("19_61mjl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 0, 14)
+
+[node name="Fence 3" parent="." instance=ExtResource("19_61mjl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19, 0, 14)
+
 [node name="StartingZone" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0421821, -0.064116, -0.7012)
 
@@ -150,6 +166,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 [node name="Room-1 HOLE2" parent="." instance=ExtResource("7_t3fx4")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 22)
 
+[node name="Wall Door2" parent="Room-1 HOLE2" instance=ExtResource("8_t0gcf")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.62268e-07, 1, 3)
+
+[node name="Wall Door3" parent="Room-1 HOLE2" instance=ExtResource("8_t0gcf")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3, 1, 0)
+
 [node name="Room-1 HOLE3" parent="." instance=ExtResource("9_ggp3v")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 14)
 
@@ -168,6 +190,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0,
 [node name="EventTriggerer - a" parent="Room-1 HOLE3/Room - Blue" node_paths=PackedStringArray("event_items") instance=ExtResource("5_vx2wm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -4.00001)
 event_items = [NodePath("../../../Door - a1"), NodePath("../../../Room-1 HOLE/Door/Wall Door2/Door - a2"), NodePath("../../../Room-1 HOLE/Door/Wall Door2/Door - a3")]
+
+[node name="Poster" type="MeshInstance3D" parent="Room-1 HOLE3/Room - Blue"]
+transform = Transform3D(0.576637, 0, 0, 0, -2.52056e-08, -0.739562, 0, 0.576637, -3.23273e-08, 0, 1.08821, -5)
+mesh = SubResource("PlaneMesh_s4xyg")
+surface_material_override/0 = SubResource("StandardMaterial3D_kuhq1")
 
 [node name="Corridor 2X7" parent="." instance=ExtResource("6_ied81")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
@@ -308,3 +335,10 @@ transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -1, 0.
 
 [node name="DeadZone-active-always6" parent="." instance=ExtResource("26_qbp33")]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 1, 0.244244, 15)
+
+[node name="Person" parent="." instance=ExtResource("3_oo8qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0714731, 1.00731, 22.2348)
+stronger = true
+
+[node name="Person2" parent="." instance=ExtResource("3_oo8qp")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -21.9285, 0.818272, 12.8483)

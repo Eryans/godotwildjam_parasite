@@ -101,9 +101,11 @@ func gameover() -> void:
 	# current_host.current_state = current_host.person_state.DEAD
 	print("DEAD X_X")
 
-func _on_open_dialog_box(text:String) -> void:
+func _on_open_dialog_box(text:String, portrait: CompressedTexture2D, char_name:String) -> void:
 	dialog_container.visible = true
 	dialog_label.text = text
+	%Portrait.texture = portrait
+	%PortraitName.text = char_name
 	pass
 	
 func _on_close_dialog_box() -> void:
