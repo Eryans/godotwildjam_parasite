@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv7ibrnkch1uu"]
+[gd_scene load_steps=7 format=3 uid="uid://bv7ibrnkch1uu"]
 
 [ext_resource type="Script" path="res://scripts/class/event_triggerer.gd" id="1_kwtol"]
 [ext_resource type="ArrayMesh" uid="uid://bv7s57vdivqqg" path="res://assets/meshs/props/props_Cube_011.res" id="2_sh7l0"]
+[ext_resource type="AudioStream" uid="uid://c0xg1dq1iodu4" path="res://assets/sound_effect/activate_terminal.wav" id="3_gtqvg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u26fj"]
 albedo_color = Color(0.419608, 0.419608, 0.419608, 1)
@@ -42,3 +43,7 @@ offset = Vector2(0, 200)
 billboard = 1
 render_priority = 1
 text = "E"
+
+[node name="activate_sfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_gtqvg")

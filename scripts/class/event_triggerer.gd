@@ -6,7 +6,7 @@ class_name EventTriggerer
 @export var show_when_parasite:bool = false
 
 @onready var label: Label3D = $Label3D
-
+@onready var activate_sfx = %activate_sfx
 
 func _ready():
 	monitoring = true
@@ -25,9 +25,13 @@ func _process(_delta):
 	for body in bodies:
 		if body is Parasite:
 			for item in event_items:
+				if activate_sfx != null:
+					activate_sfx.play()
 				item.activate()
 		if body is Person && body.current_state == body.person_state.INFECTED:
 			if Input.is_action_just_pressed("ui_action"):
+				if activate_sfx != null:
+					activate_sfx.play()
 				for item in event_items:
 					item.activate()
 

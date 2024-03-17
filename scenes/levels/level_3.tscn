@@ -207,5 +207,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -19)
 [node name="Fence 2x2" parent="." instance=ExtResource("20_xvaek")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0, 10)
 
+[node name="Fence 2x4" parent="." instance=ExtResource("20_xvaek")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -4, 0, 6)
+
 [node name="Fence 2x3" parent="." instance=ExtResource("20_xvaek")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0, 10)
