@@ -23,6 +23,7 @@ func _ready():
 	if current_host:
 		current_host.set_infected()
 		camera_control.target = current_host
+		camera_control.global_transform.origin = current_host.global_transform.origin
 	pass
 
 
@@ -71,6 +72,7 @@ func _on_parasite_infect_person(person: Person):
 func _on_level_change(person: Person) -> void:
 	current_host = person
 	camera_control.target = current_host
+	camera_control.global_transform.origin = current_host.global_transform.origin
 
 
 func _on_parasite_died() -> void:

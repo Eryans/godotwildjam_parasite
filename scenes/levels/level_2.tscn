@@ -26,7 +26,7 @@ albedo_color = Color(1, 1, 1, 0)
 [node name="Level_2" type="Node3D"]
 
 [node name="Invisble floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2987, -0.0700225, -25.321)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2987, -0.41737, -25.321)
 material_override = SubResource("StandardMaterial3D_mixc1")
 use_collision = true
 collision_layer = 15
@@ -51,7 +51,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -29, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, -29)
 
 [node name="Room-1 HOLE3" parent="." instance=ExtResource("2_g2hbq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21, -0.117241, -19)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21, 0, -19)
 
 [node name="Wall Door2" parent="Room-1 HOLE3" instance=ExtResource("3_3ekoq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
