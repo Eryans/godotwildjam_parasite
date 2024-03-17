@@ -189,7 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2.99999)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, -5.72205e-06)
 
 [node name="EventTriggerer - a" parent="Room-1 HOLE3/Room - Blue" node_paths=PackedStringArray("event_items") instance=ExtResource("5_vx2wm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -4.00001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0.302656, -4.00001)
 event_items = [NodePath("../../../Door - a1"), NodePath("../../../Room-1 HOLE/Door/Wall Door2/Door - a2"), NodePath("../../../Room-1 HOLE/Door/Wall Door2/Door - a3")]
 
 [node name="Poster" type="MeshInstance3D" parent="Room-1 HOLE3/Room - Blue"]

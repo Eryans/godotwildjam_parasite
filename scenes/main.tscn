@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbnfy5mgpbw7u"]
+[gd_scene load_steps=13 format=3 uid="uid://cbnfy5mgpbw7u"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_g6wxm"]
 [ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_me3d0"]
 [ext_resource type="Script" path="res://scripts/camera_control.gd" id="2_ogl05"]
 [ext_resource type="Texture2D" uid="uid://620x50fjlon3" path="res://assets/materials/Textures/general_slimy_boi.png" id="4_tkolw"]
 [ext_resource type="Theme" uid="uid://dut81vcddbg7n" path="res://assets/materials/ui_theme.tres" id="5_vgvvq"]
+[ext_resource type="Texture2D" uid="uid://c0vk0sgsm8nno" path="res://assets/materials/Textures/atchoum.png" id="6_6i0bf"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_n8iri"]
 length = 0.001
@@ -148,12 +149,31 @@ text = "BLABLA BLA BLABLABLABLABLABLA BLA BLABLABLABLABLABLA BLA BLABLABLABLABLA
 autowrap_mode = 3
 
 [node name="UIContainer" type="BoxContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -361.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_left = -237.0
+offset_bottom = 115.0
+grow_horizontal = 0
 alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/UIContainer"]
+layout_mode = 2
+theme = ExtResource("5_vgvvq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/UIContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/UIContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("6_6i0bf")
+expand_mode = 3
+
+[node name="TimerUiLabel" type="Label" parent="Control/UIContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Seconds left"

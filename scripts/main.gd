@@ -7,7 +7,9 @@ extends Node3D
 @onready var level_manager: LevelManager = $LevelManager
 @onready var gameover_overlay: BoxContainer = $Control/BoxContainerGameover
 @onready var dialog_container: GridContainer = $Control/DialogContainer
-@onready var dialog_label:Label = %DialogLabel
+@onready var dialog_label: Label = %DialogLabel
+@onready var ui_container = %UIContainer
+@onready var time_left_label = %TimerUiLabel
 
 var parasite_scn: PackedScene = preload("res://scenes/parasite.tscn")
 var is_gameover: bool = false
@@ -36,7 +38,11 @@ func _process(_delta):
 		is_gameover = false
 		gameover_overlay.visible = false
 		level_manager.load_level(level_manager.current_level)
-
+	if !current_host && parasite != null:
+		ui_container.visible = true
+		time_left_label.text = "{time} s".format({"time": floor(parasite.timer.time_left)})
+	else:
+		ui_container.visible = false
 	if current_host && !is_gameover:
 		if Input.is_action_just_pressed("shoot"):
 			current_host.sneeze_sfx.play()
@@ -102,12 +108,14 @@ func gameover() -> void:
 	# current_host.current_state = current_host.person_state.DEAD
 	print("DEAD X_X")
 
-func _on_open_dialog_box(text:String, portrait: CompressedTexture2D, char_name:String) -> void:
+
+func _on_open_dialog_box(text: String, portrait: CompressedTexture2D, char_name: String) -> void:
 	dialog_container.visible = true
 	dialog_label.text = text
 	%Portrait.texture = portrait
 	%PortraitName.text = char_name
 	pass
-	
+
+
 func _on_close_dialog_box() -> void:
 	dialog_container.visible = false
